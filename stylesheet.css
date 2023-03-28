@@ -1,0 +1,92 @@
+body {
+color:#000000;
+font-family:verdana, sans-serif;
+font-size:10pt;
+background:#A7D2FD;
+margin:0;
+padding:0;
+}
+
+a:link, a:visited {
+text-decoration:underline;
+color:#000000;
+}
+
+a:active, a:hover {
+text-decoration:underline;
+color:#888888;
+}
+
+img {
+border:0px;
+}
+
+#header {
+text-align:center;
+height:150px;
+background-image:url('img/spaceptz.gif')
+}
+
+#header img {
+margin:auto;
+}
+
+#container {
+position:relative;
+width:100%;
+}
+
+#content {
+margin-left:145px;
+margin-right:145px;
+padding:5px;
+}
+
+#leftmenu {
+position:absolute;
+left:0;
+top:0;
+width:130px;
+padding:5px;
+text-align:left;
+background-image:url('img/bg.gif')
+}
+
+#rightmenu {
+position:absolute;
+right:0;
+top:0;
+width:130px;
+padding:5px;
+text-align:right;
+background-image:url('img/bg.gif')
+}
+
+#leftmenu ul, #rightmenu ul {
+list-style-type:none;
+margin:0;
+padding:0 5px;
+}
+
+#menu ul {
+text-align:center;
+width:100%;
+margin:0;
+padding:0;
+list-style-type:none;
+background:#FCF5E2;
+}
+
+#menu li {
+display:inline;
+padding:0 0.5em;
+}
+
+#menu li a:link, #menu li a:visited {
+color:#000088;
+text-decoration:none;
+}
+
+#menu li a:hover, #menu li a:active {
+text-decoration:underline;
+}
