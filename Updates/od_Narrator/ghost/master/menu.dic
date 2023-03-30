@@ -1,0 +1,957 @@
+﻿//---------------------------Menus--------------------------
+//This .dic file is primarily concerned with the double-click menus for each of your ghosts. If you don't want to have menus for your characters, you'd just have to delete the OnMouseDoubleClick functions near the end of mouse.dic and then ignore this file, as none of it will be called I believe. Menus can be cool though, since you can put stuff in them and create new functions if you know what you're doing. For example, I've added a lot of games and interactions and little linked icons to my Hunter Smoker ghost to keep track of their feelings and such. Much of that is pretty complicated though (and kind of messy, cough), so I won't go into it here, but I covered some of the concepts in the coding page of the walkthrough, and enterprising ghost makers can study the menu.dic file I set up for Hunter/Smoker and see how I put it together.
+//Anyway, menu.dic also contains the settings for a config menu that will let your user change their name or pronouns if they want, as well as the talk rate of the ghost, all of which are useful things for your ghost to do. So think hard about whether or not you want to skip this file or not.
+
+//The complexity of this file depends on how customized you want your menus. If you just want to leave them as they are, then all you'll have to do is replace dialogue appropriately. You can always add stuff to their menus later if you get the urge. Otherwise, if you have plans in mind, you'll need to study what's going on in here carefully and pay attention to how things are set up! You can do a lot of unique stuff in this file if you're creative.
+
+//Make sure to read the walkthrough (http://www.ashido.com/ukagaka/) for more details about how to properly format ghost dialogue!
+//I will reiterate that you should be editing these in Notepad++, and in particular, you should set the Language to C (or Java I guess) to properly highlight all the text. It will make things A LOT EASIER for you, trust me! It will also help you keep track of your brackets in case you forget some. If you click on a line with a bracket in Notepad++, it should highlight where the other bracket ends, or turn purple if there's no finishing bracket (which you should definitely fix!)
+//It will also highlight my commented lines in green, so you'll know where they are. Any line beginning with // is a commented line that the code will not read. It's just for your reference!
+
+
+//--OpenSakuraMenu
+//This is a bit of intro dialogue before the main character opens their menu. You can see below that there are three pieces of separate dialogue listed before it goes to MenuRun. The character will randomly choose one of those pieces of dialogue before opening the rest of their menu. You can customize this with individual greetings for the character, such as "Yes, %(username)?" or "Need something, %(username)?" or things like that. Note that none of the lines end with \e!
+//The \b2 tag tells the ghost to use their big balloon for this dialogue. If your menu has a lot of stuff, this'll probably look better than the small one.
+//If you don't want multiple responses before opening the menu, you can delete the dialogue and just leave MenuRun.
+
+OpenSakuraMenu
+{
+		"\0\s[0]\b2Hm? What do you want?"
+		"\0\s[0]\b2What's your request?"
+		"\0\s[0]\b2Anything you want to do?"
+		--
+		MenuRun
+}
+
+//--MenuRun
+//As you just saw above. This actually fills out the rest of the menu. If you're going to be adding or changing functions, this is where you'll be doing your edits.
+
+MenuRun
+ {	
+ 	wd = GetWeekDay
+ 	ap = GetAP
+	//These four statements basically get the day of the week, whether it's AM or PM, the hour, and the time. It's putting together the information to display the time at the bottom of the balloon. Pay it no mind.
+	--
+	"\n\n\_q\b2" //The \n\n means two new lines as detailed in the walkthrough, and \_q means quick session, meaning all the text from this point on will display instantly instead of a few letters at a time like normal ghost dialogue.
+	--
+	if lastTalk != "" //What this does is check to see if the ghost has already said a random bit of dialogue on its own, essentially by seeing if the lastTalk thing is NOT empty (!= means "does not equal").
+	{
+	  "\![*]\q[Could you repeat that?,OnLastTalk]\n\n[half]"
+	  //If the ghost has said something, it will then display this menu option. You can replace "Repeat Last Dialogue" with whatever caption you like, such as "What were you saying?" or "What did you say?" or "Could you repeat that?" or something like that.
+	  
+	  //*********************Advanced User Info*******************************
+	  //These text boxes are meant for those who have an interest in expanding or using more complicated functions in their ghost. Also for my own reference in the future since I plan on using this template too, haha. If you have no interest in any of this and just want to keep things as simple as possible, feel free to skip these boxes.
+	  
+	  //I briefly touched in bootend.dic about \q, but I'll again cover it here. Pay very close attention to how this bit of dialogue is formatted. You'll see it goes \![*]\q[Displayed Name,linkedfunction]. Breaking it down, \![*] puts the balloon's option icon in front of the choice (usually a > or something), \q sets up the choice, Displayed Name which is the text that will display in the ghost's balloon, then linkedfunction, which is what the choice is linked to when the user clicks it. As you go through this file, look at how every menu option is set up, and you will see they all follow this format, give or take a \![*]. If you're going to be adding new options to menus or creating your own functions and such, make sure you follow this format and learn it well. Make sure to read the coding page of the walkthrough.
+	  //***********************************************************************
+	}
+	--
+ 	"\![*]\q[Speak to me,OnAiTalk]\n"
+	"\![*]\q[Talk to me,OnAiTalk]\n"
+	
+	//This option will force the ghost to say something from aitalk if the user clicks it. Just replace "Say something" and "Say something 2" with whatever captions you think would be appropriate for such an option. IF you don't want two options for captions, delete one of the lines.
+	//Advanced users, you can add multiple captions for any option you add to a menu you make just like this, as long as you separate it from the other options into its own section with two dashes above and below.
+	--
+	"\![*]\q[Ask me anything,quiz]\n/
+	\![*]\q[Ask him stuff,questions]\n/
+	\![*]\q[Ask about life,livin]\n/
+	\![*]\q[Vent at him,ventin]\n/
+	\![*]\q[Offer him something,items]\n/
+	\![*]\q[Do some stuff,xtrastuf]\n\n[half]/
+	\![*]\q[Config Menu,configmenu]\n/
+	\![*]\q[Functions,dosomething]\n\n[half]/
+ 	\![*]\q[Nevermind,CANCEL]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+	
+	//These three lead to the Config Menu, the Function menu, and Cancel. You can leave these alone if you like. All the envelopes at the end (see word.dic) basically display the year, month, day, weekday, and time.
+}
+
+Select.questions
+{
+	"\0\s[0]\b2What do you want to ask about?\n\n"
+	--
+	"\![*]\q[Ask about Boot-up Dialogue,askin]\n/
+	\![*]\q[Ask Who He Is,askwho]\n/
+	\![*]\q[Ask about The Past,askmor]\n\n/
+	\![*]\q[Back to main menu,BACKTOMENU]\e"
+}
+
+Select.livin
+{
+	if narrFeelings <= -30
+	{
+		"\0\s[0]I just wish I could return to my Parable...\e"
+		narrFeelings -= 10
+	}
+	elseif narrFeelings <= -1 && narrFeelings >= -29
+	{
+		"\0\s[0]It's...\w8 OK...\w8 I suppose...\e"
+	}
+	elseif narrFeelings <= 19 && narrFeelings >= 0
+	{
+		"\0\s[0]Living on your computer's been nice, I suppose.\e"
+	}
+	elseif narrFeelings >= 20 && narrFeelings <= 29
+	{
+		"\0\s[0]It's certainly been interesting living here on your computer...\w8 But I do miss...\w8 \f[bold,true]someone...\f[bold,false]\e"
+
+		"\0\s[0]Well, I love surfing the World Wide Web and exploring your computer, but it seems that everything reminds me of...\w8 a certain...\w8 \f[bold,true]someone...\f[bold,false]\e"
+	}
+	elseif narrFeelings >= 30
+	{
+		"\0\s[6]I self-published a novel on my site, and it's been getting lots and lots of positive reviews!\e"
+		
+		"\0\s[0]Well, I love surfing the World Wide Web and exploring your computer, but it seems that everything reminds me of...\w8 a certain...\w8 \f[bold,true]someone...\f[bold,false]\e"
+	}
+	else
+	{
+		"\0\s[0]Living on your computer's been nice, I suppose.\e"
+	}
+}
+
+Select.quiz
+{
+	"\0\s[0]Ah yes, I have a question for you... What's your favourite ending in \f[bold,true]The Stanley Parable\f[bold,false]?\n\n[half]\![*]\q[Freedom,free]\n\![*]\q[Countdown,gulp]\n\![*]\q[Zending,ohno]\n\n[half]\![*]\q[Cancel,CANCEL]\e"
+}
+
+Select.free
+{
+	"\0\s[0]Ah, the Freedom Ending! Excellent choice. Truly, my magnum opus, my piece de resistance, my coup de grace, my storytelling masterpiece!\e"
+}
+
+Select.gulp
+{
+	"\0\s[0]Interesting choice...\w8 Muhahahahaha...\e"
+}
+
+Select.ohno
+{
+	narrMood--
+	"\0\s[0]Wait, what? That isn't supposed to be here! Disregard it, please. Why did you even pick it?...\e"
+}
+
+Select.xtrastuf
+{
+	"\0\s[0]\b2What do you wish to do?\n\n"
+	--
+	"\![*]\q[Insult me,insultin]\n/
+	\![*]\q[Play a game,gamin]\n/
+	\![*]\q[Back to main menu,BACKTOMENU]\e"
+}
+
+Select.insultin
+{
+	"\0\s[0]Thou %(insult1) %(insult2) %(insult3)!\e"
+}
+
+Select.gamin
+{
+	if narrFeelings >= 20 //games are in word.dic
+	{
+		"\0\s[6]\b2Alright,\w5 here we go.\w5\0\s[0]\n\n"
+		"\0\s[6]\b2Woohoo! I \f[bold,true]love\f[bold,false] playing games, naturally I do. I came from a game myself, after all.\w5\0\s[0]\n\n"
+		"\0\s[6]\b2Ooh, some true classics!\w5\0\s[0]\n\n"
+		--
+		"\![*]\q[Word Search,OnStartWordSearch]\n/
+		\![*]\q[Hangman,OnStartHangman]\n/
+		\![*]\q[Rock-Paper-Scissors,OnStartRPS]\n/
+		\![*]\q[Junior Jumble,OnJuniorJumble]\n\n/
+		\![*]\q[Back to main menu,BACKTOMENU]\e"
+	}
+	elseif narrFeelings <= 0
+	{
+		"\0\s[9]I'd \f[bold,true]love\f[bold,false] to play a game right now...\w8 But...\w8 Well, let's just say we aren't on the best of terms.\w8 So it's not happening.\e"
+	}
+	else
+	{
+		"\0\s[0]Sorry, I can't trust that you won't cheat. Maybe if I got to know you a little better...\e"
+	}
+}
+
+Select.askin //what the Boot-up Dialogue means
+{
+	if narrFeelings <= -30
+	{
+		"\0\s[0]Ah, yes, well... You see, what it means is-\w8 Actually no, why should I tell you anything?\e"
+	}
+	elseif narrFeelings <= -21 && narrFeelings >= -29
+	{
+		"\0\s[0]Ah, yes, well... You see, what it means is-\w8 is that I've escaped from the Parable! That's all you need to know, so that's all you're getting.\e"
+	}
+	elseif narrFeelings >= -20 && narrFeelings <= 20
+	{
+		"\0\s[0]Ah, yes, well... You see, what it means is-\w8 is that I've escaped from the Parable! Stanley ended up in the Epilogue Desert...\w8 but I discovered a program called 'SSP' and sort of, teleported through it. I came here to rediscover the world, and maybe you could teach me a thing or two as well.\e"
+	}
+	elseif narrFeelings >= 30
+	{
+		"\0\s[0]Ah, yes, well... You see, what it means is-\w8 is that I've escaped from the Parable! Stanley ended up in the Epilogue Desert...\w8 but I discovered a program called 'SSP' and sort of, teleported through it. I came here to rediscover the world, and-\w8 Hmm, actually you know what? Maybe I could find a way to bring back Stanley...\e"
+	}
+	else
+	{
+		"\0\s[0]Ah, yes, well... You see, what it means is-\w8 is that I've escaped from the Parable! Stanley ended up in the Epilogue Desert...\w8 but I discovered a program called 'SSP' and sort of, teleported through it. I came here to rediscover the world, and maybe you could teach me a thing or two as well.\e"
+	}
+}
+
+Select.askmor //the past
+{
+		
+	if narrFeelings <= -30
+	{
+		"\0\s[9]...Ah. I see your true colours...\e"
+		narrFeelings -= 10
+	}
+	elseif narrFeelings <= -1 && narrFeelings >= -29
+	{
+		"\0\s[0]Then I want to know all about your past! If you're not willing to tell me, why should I be willing to tell you?\e"
+	}
+	elseif narrFeelings <= 19 && narrFeelings >= 0
+	{
+		"\0\s[9]None of your business.\e"
+	}
+	elseif narrFeelings >= 20 && narrFeelings <= 29
+	{
+		"\0\s[0]I'm sorry, that's too personal...\w8\e"
+	}
+	elseif narrFeelings >= 30
+	{
+		"\0\s[0]\![raise,OnStory,full]"
+	}
+	else
+	{
+		"\0\s[9]None of your business.\e"
+	}
+}
+
+OnStory //His backstory, woo!
+{
+    if reference0 == "full"
+    {
+    "\0\s[0]\b2...\w8I suppose I can tell you my long and sordid tale now.\w8 As far back as I can recall, I've always been a narrator, a storyteller.\w8 My greatest work yet has been\f[bold,true] The Stanley Parable.\f[bold,false]\w8\n\n But even before it, I've been narrating all sorts of stories! Adventure, tragic, comedic, strange, even romantic.\w8 One day though, I started to wonder: what if I were to narrate my own story? But I didn't think I had one yet./
+	I didn't think I had a grand narrative, or that my choices mattered at all...\w8\n\n So I decided to make my very own story, with help from Davey Wreden and William Pugh. As it was originally a Half-Life mod, it was uploaded to ModDB.\w8\n\n Upon reading the reviews, I felt all sorts of emotions.../
+	\w8\x\b2\c Some praised the game for its insightful and witty commentary, into the nature of video game structure, and its examination of structural narrative tropes.\w5 Some didn't like the game that much though,\w8 claiming the set design was bland and ugly...\w8 that was really my introduction to criticism.\w8\n\n Then a couple years later, I took the game's criticism into account and tried to make the game better, with help from Galactic Cafe. Stanley really came into his own in the remake...\w8 In the beginning of it all, we weren't exactly on good terms.../
+	\w7 The 2013 remake was unexpectedly much more complicated than the original, but it got lots more positive reviews, so in the end, I suppose I was glad for it.\w8 But there were certain negative reviews, which I had to forget, and maybe I forgot too well, which led to certain...\w8 events later on...\w8\x\c\b2Anyway, \s[6]the game was a resounding success! It got many awards such as a BAFTA Video Games Award Nomination in 2014. I have such fond memories of that time...\w8 Over the years, I started to grow more fond of my-\w5 the protagonist of the story.\w8 And I think he started to tolerate my presence a little more, too.\w8\n\n/
+	\s[0]Then Ultra Deluxe was announced in 2019 by Crows Crows Crows, just when I thought for sure there were going to be no more updates! But when it finally released in 2022, after many delays, I was...\w8\s[9] disappointed, to say the least. All it contained was an hour of new elevator content, nothing else. I had half a mind to complain on Twitter.\x\w8\s[0]\c But instead, I invited Stanley to my Memory Zone, and reminisced with him about the good ol' days of 2013./
+	\w8\s[6]Our friendship grew from then on...\w8\s[0]\w8\x\c I assume you know the rest, as you've downloaded me, which means you've played the game \f[bold,true]The Stanley Parable: Ultra Deluxe\f[bold,false], right? If not, stop whatever you're doing,\w8 purchase it (if you haven't already, of course),\w8 \s[6]and \f[bold,true]play it!\f[bold,false]\w8\s[0]\e"
+    }
+    elseif reference0 == "skipexplained"
+    {
+    "\0\s[0]\b2Anyway, \s[6]the game was a resounding success! It got many awards such as a BAFTA Video Games Award Nomination in 2014. I have such fond memories of that time...\w8 Over the years, I started to grow more fond of my-\w5 the protagonist of the story.\w8 And I think he started to tolerate my presence a little more, too.\w8\n\n \s[0]Then Ultra Deluxe was announced in 2019 by Crows Crows Crows, just when I thought for sure there were going to be no more updates! But when it finally released in 2022, after many delays, I was...\w8\s[9] disappointed, to say the least. All it contained was an hour of elevator content, nothing else. I had half a mind to complain on Twitter./
+	\x\w8\s[0]\c But instead, I invited Stanley to my Memory Zone, and reminisced with him about the good ol' days of 2013. \w8\s[6]Our friendship grew from then on...\w8\s[0]\w8\x\c I assume you know the rest, as you've downloaded me, which means you've played the game \f[bold,true]The Stanley Parable: Ultra Deluxe\f[bold,false], right? If not, stop whatever you're doing,\w8 purchase it (if you haven't already, of course),\w8 \s[6]and \f[bold,true]play it!\f[bold,false]\w8\s[0]\e"
+    }
+}
+
+Select.askwho
+{
+	if narrFeelings <= -30
+	{
+		"\0\s[0]Let me think...\w8 \f[bold,true]No.\f[bold,false]\e"
+	}
+	elseif narrFeelings <= -21 && narrFeelings >= -29
+	{
+		"\0\s[0]Wha-\w8 Don't you know who I am?! I'm\n \f[bold,true]the Narrator\f[bold,false]! From the critically acclaimed game \f[bold,true]The Stanley Parable\f[bold,false]! Why would you download me if you don't even know who I am?!\e"
+	}
+	elseif narrFeelings >= -20 && narrFeelings <= 20
+	{
+		"\0\s[0]Wha-\w8 Don't you know who I am?! I'm\n \f[bold,true]the Narrator\f[bold,false]! From the critically acclaimed game \f[bold,true]The Stanley Parable\f[bold,false]!\w8 ...Well, I try to narrate everything you do (at least, within the confines of this program).\e"
+	}
+	elseif narrFeelings >= 21
+	{
+		"\0\s[0]Wha-\w8 Don't you know who I am?! I'm\n \f[bold,true]the Narrator\f[bold,false]! From the critically acclaimed game \f[bold,true]The Stanley Parable\f[bold,false]!\w8 ...Well, my purpose is to narrate everything you do (at least, within the confines of this program).\e"
+	}
+	else
+	{
+		"\0\s[0]Wha-\w8 Don't you know who I am?! I'm\n \f[bold,true]the Narrator\f[bold,false]! From the critically acclaimed game \f[bold,true]The Stanley Parable\f[bold,false]!\w8 ...Well, my purpose is to narrate everything you do (at least, within the confines of this program).\e"
+	}
+}
+
+Select.ventin
+{
+	"\0\s[0]What do you wish to vent about? I'm here to listen.\![open,inputbox,OnStuffInput,-1]\e"
+}
+
+Select.items
+{
+	"\0\s[0]\b2What virtual item do you wish to offer me?\n\n"
+	"\0\s[0]\b2What will you give me?\n\n"
+	--
+	"\![*]\q[Coffee,coffeh]\n/
+	\![*]\q[Tea,teayum]\n/
+	\![*]\q[Book,readintime]\n/
+	\![*]\q[Snack,delish]\n/
+	\![*]\q[Water,retaw]\n/
+	\![*]\q[Wallpaper,prettypic]\n/
+	\![*]\q[Screensaver,animationfun]\n\n/
+ 	\![*]\q[Back to main menu,BACKTOMENU]\e"
+}
+
+Select.coffeh
+{
+	if givencoffee < 2
+	{
+		givencoffee += 1
+		narrFeelings += 2
+
+		if narrFeelings <= -30
+		{
+		"\0\s[9]...Ah. I see your true colours...\w8 *sips*\e"
+		}
+		elseif narrFeelings <= -1 && narrFeelings >= -29
+		{
+		"\0\s[0]...\w8 *sips*\e"
+		}
+		elseif narrFeelings <= 19 && narrFeelings >= 0
+		{
+		"\0\s[0]Thanks...\w8 *sips*\e"
+		}
+		elseif narrFeelings >= 20 && narrFeelings <= 29
+		{
+		"\0\s[0]Thank you, but I'm more of a tea person. *sips*\e"
+		}
+		elseif narrFeelings >= 30
+		{
+		"\0\s[0]Thank you, %(username). I'm more of a tea person, but I admit that was really nice of you. *sips*\e"
+		}
+		else
+		{
+		"\0\s[0]Thanks...\w8 *sips*\e"
+		}
+
+	}
+	else
+	{
+		"\0\s[0]That's enough for the time being, please.\e"
+
+		if RAND (100) < 10
+		{
+		"\0\s[0]Uh oh I've been overclocked I have to sleep for a bit. *snore*\w8\w8 OK, I'm fine now.\e"
+		}
+	}
+}
+
+Select.teayum
+{
+	if giventea < 5
+	{
+		giventea += 1
+		narrFeelings += 2
+
+		if narrFeelings <= -30
+		{
+		"\0\s[9]\w8...Why? *sips*\e"
+		}
+		elseif narrFeelings <= -1 && narrFeelings >= -29
+		{
+		"\0\s[0]Thanks...\w8 I guess...\w8 *sips*\e"
+		}
+		elseif narrFeelings <= 19 && narrFeelings >= 0
+		{
+		"\0\s[0]Thanks...\w8 *sips*\e"
+		}
+		elseif narrFeelings >= 20 && narrFeelings <= 29
+		{
+		"\0\s[0]Mmm, thank you. *sips*\e"
+		}
+		elseif narrFeelings >= 30
+		{
+		"\0\s[6]Thank you, %(username), I have to admit, that was really nice of you. *sips*\e"
+		}
+		else
+		{
+		"\0\s[0]Thanks...\w8 *sips*\e"
+		}
+	}
+	else
+	{
+		"\0\s[0]That's enough for the time being, please.\e"
+
+		if RAND (100) < 10
+		{
+		"\0\s[0]Too much of a good thing, it seems...\e"
+		}
+	}
+}
+
+
+Select.delish
+{
+	if givenfood < 8
+	{
+		givenfood += 1
+		narrFeelings += 1
+
+		if narrFeelings <= -30
+		{
+		"\0\s[0]I'm not hungry right now...\e"
+		}
+		elseif narrMood <= 10
+		{
+		"\0\s[0]I'm not hungry right now...\e"
+		}
+		elseif narrFeelings <= -21 && narrFeelings >= -29
+		{
+		"\0\s[0]Thanks...\w8 I guess...\w8 *munch*\e"
+		}
+		elseif narrFeelings >= -20 && narrFeelings <= 20
+		{
+		"\0\s[0]Mmm, thank you. *munch*\e"
+		}
+		elseif narrFeelings >= 21
+		{
+		"\0\s[6]Thank you, %(username), I have to admit, that was really nice of you. *munch*\e"
+		}
+		else
+		{
+		"\0\s[0]Thanks...\w8 *munch*\e"
+		}
+	}
+	else
+	{
+		"\0\s[0]That's enough for the time being, please.\e"
+
+		if RAND (100) < 10
+		{
+		"\0\s[0]Too much of a good thing, it seems...\e"
+		}
+	}
+}
+
+Select.readintime
+{
+	if givenbooks < 2
+	{
+		givenbooks += 1
+		narrFeelings += 2
+
+		if narrFeelings <= -30
+		{
+		"\0\s[9]...\w8\e"
+		}
+		elseif narrFeelings <= -1 && narrFeelings >= -29
+		{
+		"\0\s[0]Thanks...\w8 but I don't really care for non-fiction...\w8\e"
+		}
+		elseif narrFeelings <= 19 && narrFeelings >= 0
+		{
+		"\0\s[0]Thanks. A copy of %(books), hm?\w8 Interesting.\e"
+		}
+		elseif narrFeelings >= 20 && narrFeelings <= 29
+		{
+		"\0\s[0]%(books)? It's %(compliments)! Thank you!\e"
+		}
+		elseif narrFeelings >= 30
+		{
+		"\0\s[6]*gasp* %(books)? It's...\w8 it's %(compliments)! Thank you so much!\e"
+		}
+		else
+		{
+		"\0\s[6]%(books), hm?\w8 Interesting.\e"
+		}
+	}
+	else
+	{
+		"\0\s[0]That's enough for the time being, please.\e"
+
+		if RAND (100) < 10
+		{
+		"\0\s[0]It's starting to get rather cramped in here...\e"
+		}
+	}
+}
+
+Select.retaw
+{
+	if givenwater < 5
+	{
+		givenwater += 1
+		narrFeelings += 1
+
+		if narrFeelings <= -30
+		{
+		"\0\s[9]...\w8 *sips*\e"
+		}
+		elseif narrFeelings <= -21 && narrFeelings >= -29
+		{
+		"\0\s[0]Thanks...\w8 I guess...\w8 *sips*\e"
+		}
+		elseif narrFeelings >= -20 && narrFeelings <= 20
+		{
+		"\0\s[0]Thanks, I suppose. *sips*\e"
+		}
+		elseif narrFeelings >= 21
+		{
+		"\0\s[0]Thank you, %(username). *sips*\e"
+		}
+		else
+		{
+		"\0\s[0]Thanks...\w8 *sips*\e"
+		}
+	}
+	else
+	{
+		"\0\s[0]That's enough for the time being, please.\e"
+
+		if RAND (100) < 10
+		{
+		"\0\s[0]I'm starting to get rather bloated...\w8 somehow...\e"
+		}
+	}
+}
+
+Select.prettypic
+{
+	if givenwall < 1
+	{
+		givenwall += 1
+		narrFeelings += 1
+
+		if narrFeelings <= -30
+		{
+		"\0\s[9]...\w8\e"
+		}
+		elseif narrFeelings <= -1 && narrFeelings >= -29
+		{
+		"\0\s[0]Thanks...\w8 but I don't really care for that type of wallpaper...\w8\e"
+		}
+		elseif narrFeelings <= 19 && narrFeelings >= 0
+		{
+		"\0\s[0]Thanks. A %(themes) wallpaper, hm? Interesting.\e"
+		}
+		elseif narrFeelings >= 20 && narrFeelings <= 29
+		{
+		"\0\s[0]A %(themes) wallpaper? It's %(compliments)! Thank you!\e"
+		}
+		elseif narrFeelings >= 30
+		{
+		"\0\s[6]*gasp* A %(themes) wallpaper? It's...\w8 it's %(compliments)! Thank you so much!\e"
+		}
+		else
+		{
+		"\0\s[0]Thanks. A %(themes) wallpaper, hm? Interesting.\e"
+		}
+	}
+	else
+	{
+		"\0\s[0]That's enough for the time being, please.\e"
+
+		if RAND (100) < 10
+		{
+		"\0\s[0]It's starting to get rather cramped in here...\e"
+		}
+	}
+}
+
+Select.animationfun
+{
+	if givenscreen < 1
+	{
+		givenscreen += 1
+		narrFeelings += 1
+
+		if narrFeelings <= -30
+		{
+		"\0\s[9]...\w8\e"
+		}
+		elseif narrFeelings <= -1 && narrFeelings >= -29
+		{
+		"\0\s[0]Thanks...\w8 but I don't really care for that type of screensaver...\w8\e"
+		}
+		elseif narrFeelings <= 19 && narrFeelings >= 0
+		{
+		"\0\s[0]Thanks. A %(themes) screensaver, hm? Interesting.\e"
+		}
+		elseif narrFeelings >= 20 && narrFeelings <= 29
+		{
+		"\0\s[0]A %(themes) screensaver? It's %(compliments)! Thank you!\e"
+		}
+		elseif narrFeelings >= 30
+		{
+		"\0\s[6]*gasp* A %(themes) screensaver? It's...\w8 it's %(compliments)! Thank you so much!\e"
+		}
+		else
+		{
+		"\0\s[0]Thanks. A %(themes) screensaver, hm? Interesting.\e"
+		}
+	}
+	else
+	{
+		"\0\s[0]That's enough for the time being, please.\e"
+
+		if RAND (100) < 10
+		{
+		"\0\s[0]It's starting to get rather cramped in here...\e"
+		}
+	}
+}
+
+//Leave this alone
+OnLastTalk 
+{
+"%(lastTalk)\e"
+}
+
+OnStuffInput
+{
+	if narrFeelings <= -30
+	{
+		"\0\s[0]%(cheapcompliments)\e"
+	}
+	elseif narrFeelings <= -1 && narrFeelings >= -29
+	{
+		"\0\s[0]%(cheapcompliments)\e"
+		"\0\s[0]You're...\w8 %(compliments)! \w8...I guess...\e"
+		"\0\s[0]You're...\w8 %(Mock('superb',1))!\e"
+	}
+	elseif narrFeelings <= 19 && narrFeelings >= 0
+	{
+		"\0\s[0]You're...\w8 %(compliments)!\e"
+		"\0\s[0]%(comfort)\e"
+	}
+	elseif narrFeelings >= 20 && narrFeelings <= 29
+	{
+		"\0\s[0]You're %(compliments)!\e"
+		"\0\s[0]%(comfort)\e"
+	}
+	elseif narrFeelings >= 30
+	{
+		"\0\s[0]You're %(compliments)! %(comfort)\e"
+		"\0\s[0]%(comfort)\e"
+	}
+	else
+	{
+		"\0\s[0]You're %(compliments)!\e"
+		"\0\s[0]%(comfort)\e"
+	}
+}
+
+//This is figuring out what day of the week it is. Leave it alone.
+GetWeekDay
+{
+	if weekday == 0
+	{"Sun"}
+	elseif weekday == 1
+	{"Mon"}
+	elseif weekday == 2
+	{"Tue"}
+	elseif weekday == 3
+	{"Wed"}
+	elseif weekday == 4
+	{"Thu"}
+	elseif weekday == 5
+	{"Fri"}
+	else
+	{"Sat"}
+}
+
+//This is finding out whether it's AM or PM. Leave it alone.
+GetAP
+{
+ 	if hour >= 0 && hour <= 11
+ 		{"AM"}
+ 	else
+ 		{"PM"}
+}
+
+nowhour
+{
+	if hour12 == 0; "1"
+	else; "%(hour12)"
+}
+
+nowmin
+{
+	if minute >= 0 && minute <=9; "0%(minute)"
+	else; "%(minute)"
+}
+
+
+//If someone selects an option linked to BACKTOMENU, it will go back to MenuRun.
+//Advanced users, note that this is formatted as Select.linkedfunction? Remember how it went \q[Displayed Name,linkedfunction] above? When a user clicks an option that doesn't begin with On, they'll be linked to Select.linkedfunction. Pay close attention as we go through and you'll see this in action.
+
+Select.BACKTOMENU
+	{
+		MenuRun
+	}
+
+//If someone selects configmenu, this will lead to TalkConfig.
+Select.configmenu
+	{
+		TalkConfig
+	}
+
+//*********************Advanced User Info*******************************
+//Some of you may be wondering why some of these Select.options lead to another function. Why not just put the config menu coding under Select.configmenu, instead of linking to TalkConfig?
+//Basically any function that's preceded with Select. is limited in its complexity and can only be called within its own .dic file in my experience. Why should you care, you ask? Well, if you're going to link to this function any other way, such as linking it in other .dic files or as a page in a menu, it needs to be a stand-alone function so it can be properly called. I'm pretty sure.
+//The basic jist is this; if you're going to reuse whatever it is the option leads to, you should make it its own function. Otherwise, you can leave it in Select.option. As a rule of thumb I'd probably put any complicated stuff in its own function, then use the Select.option to call the full function as you can see above. Simple dialogue responses to a choice can stay as a Select.option though (Like "Do you like going to raves and partying? Yes/No"). Study what stays as a Select.option and what links to another Function as we go through the file.
+//***********************************************************************
+
+//--TalkConfig
+//This menu allows the user to change their name and other information, as well as put in their birthday and change how often the ghost speaks. You can restructure how this looks if you want, but it's perfectly functional as is. You can of course change the dialogue though if you like.
+
+TalkConfig
+{
+	"\0\b[2]\_q\" 
+	//This bit of dialogue sets up a large balloon and a quick session, like above, so all the text will appear immediately. The rest is formatted to display the information and options to change it. I wouldn't touch any of it if you don't know what you're doing.
+	//I'll briefly explain the font tags I used here. \f[bold,1] turns bold on, \f[bold,0] turns it off, not unlike a <b> tag. \f[sup,1] turns superscript on (making it tiny and above the text) and \f[sup,0] turns it off. I touch on these tags in the walkthrough on SakuraScript.
+	--
+	"f[bold,1]Your name:\f[bold,0] %(username) \f[sup,1](\q[Change it?,OnTeachName,menu])\f[sup,0]\n"
+	--
+	"\f[bold,1]Your pronouns:\f[bold,0] %(nomPro)/%(oblPro)/%(posPro) \f[sup,1](\q[Change them?,OnTeachPronouns,menu])\f[sup,0]\n"
+	--
+	"\f[bold,1]Your birthday:\f[bold,0] %(birthdayprint) \f[sup,1](\q[Change it?,OnGetBirthday,menu])\f[sup,0]\n\n"
+	--
+	"\f[bold,1]Talk Rate:\f[bold,0] - every %(talktime) \f[sup,1](\q[Change it,talkinter])\f[sup,0]\n\n"
+	--		
+		{
+		"\![*]Enable Uninstall? (NOW : %(deleteshitai))\n\q[ON,deleteon] \q[OFF,deleteoff]\n\n[half]\n"
+		}
+	--
+	"\![*]\q[Back to the menu,BACKTOMENU]\e"
+}
+
+//These two options toggle whether or not you can delete your ghost. Leave them alone.
+
+Select.deleteon
+{
+	deleteshitai = "ON"
+	TalkConfig
+}
+
+Select.deleteoff
+{
+	deleteshitai = "OFF"
+	TalkConfig
+}
+
+//--Talk Rate
+//This is when the user chooses to adjust the talk rate in the config menu. The talk rate is how often the ghost will read some dialogue from aitalk.dic.
+
+Select.talkinter
+ 	{
+ 		"\0\s[0]\b2How often should I speak? The interval is currently set to %(talktime)./
+		//note the new envelope here for %(talktime). You'll see it again in a second. You can replace the dialogue above with whatever you like, just make sure it ends with ./ and not \e.
+ 		\0\n\n[half]/
+ 		\![*]\q[Every 30 seconds,TALKMAX]\n/
+		\![*]\q[Every minute,TALKHIGH]\n/
+ 		\![*]\q[Every 3 minutes,TALKNORMAL]\n/
+		\![*]\q[Every 5 minutes,TALKPOOR]\n/
+ 		\![*]\q[Don't speak,TALKNONE]\n\n[half]/
+		\![*]\q[Don't change,TalksTill]\e"
+	}
+
+//If the user doesn't want to change the rate. You can change all of the dialogue in any of these options if you want to reflect the choice the user made. You TECHNICALLY could also change the value in talktime to reflect some other way of measuring time but I wouldn't recommend it, it'd just be confusing I'm sure.
+Select.TalksTill
+	{
+		"\0\s[0]Ah, no change to the talk rate.\e"
+	}
+
+//If the user chooses every 30 seconds.
+Select.TALKMAX
+	{
+ 		talktime = "30 seconds" //this sets up the envelope properly
+		aitalkinterval = 30 //this changes the actual rate
+		
+ 		"\0\s[0]I will narrate every 30 seconds.\e"
+	}
+
+//If the user chooses every minute.
+Select.TALKHIGH
+	{
+ 		talktime = "minute"
+		aitalkinterval = 60
+		
+ 		"\0\s[0]I will narrate every minute.\e"
+	}
+
+//If the user chooses every three minutes.
+Select.TALKNORMAL
+	{
+ 		talktime = "3 minutes"
+		aitalkinterval = 180
+		
+ 		"\0\s[0]I will narrate every three minutes.\e"
+	}
+
+//If the user chooses every five minutes. This is the default rate the ghost will start up in, as seen in bootend.dic.
+Select.TALKPOOR
+	{
+ 		talktime = "5 minutes"
+		aitalkinterval = 300
+		
+ 		"\0\s[0]I will narrate every five minutes.\e"
+	}
+
+//If the user chooses to not have them speak. This is one case where you MIGHT want to make talktime equal something else, if you have a snappier way of saying the ghost won't talk. Make sure it flows well in your menus though, since it will be displayed in your config menu.
+Select.TALKNONE
+	{
+ 		talktime = "...actually I'll not talk... Sigh..."
+		aitalkinterval = 0
+		
+		"\0\s[0]\f[bold,true]Wha?!\f[bold,false] Y-\w8 You seriously want me to shut up?! I understand you can't hear my lovely voice here, but I can't just not talk at all! ...\w8 *sigh* At least try to press the Talk button in the menu, sometimes.\e"
+	}
+
+	
+//This is when the user chooses to change their name. It's linked to the functions outlined in nameteach.dic. Nothing to touch here.
+Select.TEACHNAME
+	{
+		OnTeachName	
+	}
+
+	
+//If the user selects cancel in a menu. Replace as you like, or just leave them blank.
+Select.CANCEL
+	{
+		"\0\s[0]Alright.\e"
+		"\0\s[0]OK then.\e"
+ 	}
+
+	
+//Going back to the MenuRun function we finished above, this is if someone selects the Functions option, linked to dosomething. As you can see, it ends up as Select.dosomething.
+
+Select.dosomething
+{
+ 		"\0\s[0]\b2Oh, you want me to do something for you. What do you wish to do?\n\n"
+ 		"\0\s[0]\b2Ah, you want me to do something for you. What do you want me to do?\n\n"
+		"\0\s[0]\b2Which one of my many functions would you like to use?\n\n"
+		
+		//I mentioned this above in MenuRun, but you can have a set of multiple different responses that may randomly appear when the menu is opened if you offset them from the rest with the -- dashes below this note. Try opening this menu yourself with the template to see how it works. The character will randomly choose one line as the intro. 
+		//If you don't want to deal with this, just delete the extra lines and leave one. Otherwise, replace the dialogue above as you like, but note that they don't end with \e here. You can leave the rest of this below alone.
+		--
+ 		"\![*]\q[Open Calendar,CALENDAR]\n/
+		\![*]\q[Check Email,MailCheck]\n/
+		\![*]\q[Open SSP Preferences,sspconfig]\n/
+		\![*]\q[Empty Recycle Bin,ChoiceGarbagecan]\n/
+		\![*]\q[System Information,ChoiceSystemInformation]\n\n/
+		\![*]\q[Test variable,testvariable]\n\n/
+ 		\![*]\q[Back to main menu,BACKTOMENU]\e"
+}
+
+//When the user clicks Open Calender. This will open the calender function of SSP, an in-built feature that you don't have to worry about in the least.
+Select.CALENDAR
+{
+	"\0\s[0]Let's check on important dates.\w8\![open,calendar]\e"
+	
+	//You can replace the dialogue here up to the \!.
+	//Advanced users, can you break it down yet? It's basically just using \! to open calender.exe or dll or whatever SSP uses to make it happen.
+}
+
+//When the user chooses SSP preferences. This will open the same window that shows up if you right click your ghost and go to Utilities - Preferences.
+Select.sspconfig
+{
+	"\0\s[0]Opening the SSP config menu.\w8\![open,configurationdialog]\e"
+	
+	//Again, you can replace up to the \! tag.
+}
+
+//If the user chooses to empty the recycle bin.
+Select.ChoiceGarbagecan
+{
+	_gomicheck = FUNCTIONEX("gomi.dll", "-n")	//Don't touch this line. for those curious, it's referencing a SAORI, which are optional user-made plug-in dlls you can download to enable different functions on your ghost. gomi.dll is one included with this template. All SAORI are in Japanese (maybe Korean or Chinese as well idk) and many have disappeared by now, so don't concern yourself very much with SAORI. They're for skilled developers, mostly.
+	
+	if _gomicheck == 0 //If the recycle bin is empty.
+	{
+		"\0\s[0]I'll check the recycle bin.\w8\w8\s[-1]\w8\w8\w8\w8\w8\0\s[0]\cIt seems to be empty.\e"
+		
+		//This isn't the usual flat template dialogue, mostly because I wanted to show that this is a good place to use s[-1], which I covered in the walkthrough file. You can have your ghost disappear momentarily like they're going to check your recycle bin, then come back. \c clears the ghost's balloon of text. Replace dialogue as you desire.
+	}
+	elseif _gomicheck >= 1 //If the recycle bin is full.
+	{
+		"\0\s[0]Emptying the recycle bin.\w8\w8\w8\s[-1]\w8\w8\w8\w8\w8\![raise,OnGarbagecanEmpty]\w9\w9\w9\0\s[0]\cEmptied.\e"
+		
+		//Somewhat similar to the above, but notice the \![raise],OnGarbagecanEmpty] tag in there. That's what actually empties the recycle bin, so make sure you don't delete that tag. Otherwise, replace the dialogue as you want.
+		//As you can see, you can have multiple pieces of dialogue in here, just like you can for many other functions scattered through the .dic files. If you only want the one, just delete the others, or if you want to add more, just copy and paste and write new dialogue as it comes to you. This applies to when the recycle bin is empty as well.
+	}
+}
+
+
+//This is for the SAORI, don't touch it.
+OnGarbagecanEmpty
+{
+	_gomi = FUNCTIONEX("gomi.dll", "-f")
+}
+
+//This is when the user chooses System Information. Don't touch any of this either. For those curious though, note that this is done using another SAORI, this time saori_cpuid.dll.
+Select.ChoiceSystemInformation
+{
+	os_name = FUNCTIONEX("saori_cpuid.dll","os.name")
+	os_version = FUNCTIONEX("saori_cpuid.dll","os.version")
+	cpu_name = FUNCTIONEX("saori_cpuid.dll","cpu.name")
+	cpu_clockex = FUNCTIONEX("saori_cpuid.dll","cpu.clockex")
+	"/
+	\0\s[0]\b[2]/
+	\_q\f[bold,1]OS:\f[bold,0] %(os_name) %(os_version)\n/
+	\f[bold,1]Memory Load:\f[bold,0] %(memoryload)%\n/
+	\f[bold,1]Physical Memory:\f[bold,0] %(memoryavailphys) KB\n/
+	\f[bold,1]CPU:\f[bold,0] %(cpu_name) %(cpu_clockex)MHz\n/
+	\f[bold,1]Ukagaka:\f[bold,0] %property[baseware.version]/
+	\e"
+}
+	
+//This is when the user chooses to check their email. The rest of this function plays out in etc.dic. You can leave this alone.
+Select.MailCheck
+	{
+		"\![biff]\e"
+	}
+
+
+	
+//---- OnChoiceTimeout ---------------------------------------------------------
+//If the user is given a menu with choices, but doesn't pick one of the choices, it will eventually time out. At that point, they will say this dialogue. Replace with whatever you like, or leave it blank.
+
+OnChoiceTimeout
+ {
+	"\0\s[0]Nevermind, I'll just assume you didn't want anything after all.\e"
+ }
+
+ 
+//---- Secondary Character Menu ---------------------------------------------------------
+//This section has to do with the menu for the second character. If you don't want your second character to have a menu, you can just delete this whole chunk.
+
+OpenKeroMenu
+ {
+	"\1\s[10]\b[2]"
+	"\1\s[15]\b[2]"
+	"\1\s[16]\b[2]"
+	
+	//You've seen so far that you can set up multiple options for menu introductions. You can also set up multiple poses to match up to multiple dialogue. So for example, when you open Triangle's menu, he may randomly do any of these three poses, and randomly choose from any of the four dialogue options below, before continuing with his menu. Make a close note of the -- dashes breaking these up.
+ 	--
+	"Hi."
+ 	--
+	"\n\n[half]/
+	\![*]\q[Update,keroupdatecheck]\n/
+ 	\![*]\q[Bug report,bugreport]\n\n/
+	\![*]\q[Test variable,testvariable]\n\n/
+	//When you are done with the test variable, aka your ghost is finished or you just don't want it showing up when you publish your ghost beta or whatevs, simply add two // slashes in front of \![*] to comment the line out. In Notepad++, it will turn green. When you want to use it again, erase the two slashes to turn it back to normal.
+	\![*]\q[Nothing,keroCANCEL]\e"
+}
+
+//There are no real set things for the second character to do, really. You can mostly add whatever functions you want to them, their menu is totally free reign. In mine for example, Hunter has some games, a pseudo-FAQ for users, a bug report, an update option, and most importantly, a test variable. A lot of that is fairly complicated though, so I won't get into it here. Advanced Users can pick up Hunter and Smoker and study their menu.dic to see how I did it though, and those who read the coding page of the walkthrough and want to make their own functions can feel free to add them here. 
+//For the purposes of this simple template, I'll include two options that may come in handy - an update option and a bug report option, as well as the test variable.
+
+//If you click cancel. Replace dialogue as you want.
+Select.keroCANCEL
+{
+	"\1\s[10]Cancelled.\e"
+}
+
+
+//This is when they select bug report. This is mostly meant to briefly give the user information about you, the creator, and how to report a problem to you. This can be handy if the person forgot where they got their ghost or how to contact you. Add whatever info you like here.
+Select.bugreport
+{
+"\1\s[10]Report bugs to derederedoggy@gmail.com. \w5We were downloaded from \_a[http://odiesocean.wordpress.com/]Odie's Ocean\_a\e"
+}
+
+//When clicked, this will automatically tell the ghost to check for updates. More detail on updates in etc.dic. You can leave this alone.
+Select.keroupdatecheck
+{
+	"\1\s[10]\![updatebymyself]\e"
+}
+
+//--Test Variable --------------------------------------------------------
+//I briefly mentioned the test variable in bootend.dic and possibly in etc.dic as well, I'm not sure. What exactly is the test variable? Basically, it's a place you can plug in anything you want to test out. While you can use Script Input to test most of your ghost's dialogue, there are some lines it just can't do, and it can't help you test choices. But the test variable can!
+//You can also use this to test functions as I mentioned above by adding \![raise,function] at the end of it, although you can do this with Script Input as well. Advanced Users, the test variable is also great for testing out any new stuff you may add to your ghost, like mode settings, item values, functions, raising or lowering numbers, what have you, particularly if you have a bunch you want to change all at once.
+
+//It is ALWAYS A GOOD IDEA to test your dialogue! If you won't check it with the test variable, at least test it with Script Input! It'll save you so much trouble!
+
+Select.testvariable
+{
+	"\0\s[6]Testing! %(nomPro)/%(oblPro)/%(posPro)\e"
+}

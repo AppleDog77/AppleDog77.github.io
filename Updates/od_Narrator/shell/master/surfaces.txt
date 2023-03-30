@@ -1,0 +1,94 @@
+//Converted by olddef2newdef, by Zichqec. If there are errors in the conversion, contact Zichqec at https://zichqec.github.io/s-the-skeleton/ for assistance
+
+version,1
+
+surface0
+{
+collision0,48,16,210,26,Head
+collision1,60,27,198,140,Face
+collision2,24,151,35,162,Button
+collision3,36,152,45,161,Nottub
+
+animation0.interval,random,4
+animation0.pattern1,overlay,1101,0,0,0
+animation0.pattern2,overlay,1102,100,0,0
+animation0.pattern3,overlay,-1,50,0,0
+}
+
+//Main Character Embarrassed pose
+surface1
+{
+element0,overlay,surface1501.png,0,0
+}
+
+//Main Character Surprised pose
+surface2
+{
+element0,overlay,surface1502.png,0,0
+}
+
+//Main Character Worried pose
+surface3
+{
+element0,overlay,surface1503.png,0,0
+}
+
+//Main Character Sad/Disappointed pose
+surface4
+{
+element0,overlay,surface1504.png,0,0
+}
+
+//Main Character Determined pose
+surface5
+{
+element0,overlay,surface1505.png,0,0
+}
+
+//Main Character Happy pose
+surface6
+{
+element0,overlay,surface1506.png,0,0
+}
+
+//Main Character Angry pose
+surface7
+{
+element1,overlay,surface1507.png,0,0
+}
+
+//Main Character Thoughtful Pose
+surface8
+{
+element1,overlay,surface1508.png,0,0
+}
+
+//Main Character Unimpressed pose
+surface9
+{
+element1,overlay,surface1509.png,0,0
+}
+
+surface.append0-1509
+{
+collision0,48,16,210,26,Head
+collision1,60,27,198,140,Face
+collision2,24,151,35,162,Button
+collision3,36,152,45,161,Nottub
+}
+
+sakura.cursor
+{
+mouseup0,Head,system:hand
+mousedown0,Head,system:finger
+mouseup1,Face,system:hand
+mousedown1,Face,system:grip
+}
+
+sakura.tooltips
+{
+Head,Hm? A pat on the head, I suppose?
+Face,Hello, I'm The Narrator.
+Button,Hm? What do you think you're doing?
+Nottub,Don't you dare.
+}
