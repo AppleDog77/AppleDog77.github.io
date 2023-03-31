@@ -125,7 +125,7 @@ ReplyToGhost
              {
                    res_reference0 = "" //clearing the flag so the conversation ends
 
-                   "Don't use that nickname..."
+                   "\s[9]Don't use that nickname..."
              }
 		res_reference0 = "Pinkie Pie" //res_reference0 would be the name of the ghost they're replying to. if the ghost they're responding to has it enabled, this will allow the other ghost to respond to this statement. if you notice that your ghost is getting stuck in a loop with the other ghost, you can erase this line and it should be fine.
 		
