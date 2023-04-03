@@ -355,15 +355,15 @@ OnUpdateFailure
  {
 	if reference0 == "timeout" //if the connection times out
  	{
- 		"\1\s[10]The update connection has timed out. Grrrr... Oh well, this version doesn't have auto-update anyway.\e"
+ 		"\1\s[10]The update connection has timed out. Grrrr...\e"
 	}
  	elseif reference0 == "md5 miss" //This is if the files don't match properly to updates.dau, I think. For example, if a file only partially transferred or somehow got corrupted. This may also come up if you didn't set up the directory and updates.dau properly as outlined on the walkthrough page.
 	{
-		"\1\s[10]The MD5 hash of the files don't match, man! Oh well, this version doesn't have auto-update anyway.\e"
+		"\1\s[10]The MD5 hash of the files don't match, man!\e"
  	}
 	else //for other errors
  	{
- 		"\1\s[10]The update could not be completed. Dumb thing.\w8\0\s[0]The error is '%(reference0)'. How silly! Oh well, this version doesn't have auto-update anyway.\e"
+ 		"\1\s[10]The update could not be completed. Dumb thing.\w8\0\s[0]The error is '%(reference0)'. How silly!\e"
 	}
  }
 

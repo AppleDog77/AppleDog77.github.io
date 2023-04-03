@@ -125,7 +125,7 @@ ReplyToGhost
              {
                    res_reference0 = "" //clearing the flag so the conversation ends
 
-                   "\s[9]Don't use that nickname..."
+                   "Don't use that nickname..."
              }
 		res_reference0 = "Pinkie Pie" //res_reference0 would be the name of the ghost they're replying to. if the ghost they're responding to has it enabled, this will allow the other ghost to respond to this statement. if you notice that your ghost is getting stuck in a loop with the other ghost, you can erase this line and it should be fine.
 		
@@ -143,4 +143,41 @@ ReplyToGhost
 			 "\0\s[0]Greetings, %(res_reference0).\e"
              }
        }
+}
+
+OnStartTalking
+{
+	AlreadyResponded = 1 //setting a flag
+
+	if ghostexcount > 0
+	{
+		_num = RAND(ghostexcount)
+		_randghost = "%(ghostexlist[_num])"
+		--
+		//Checks for the Sakura name
+		case _randghost
+		{
+
+			when "Gaster" //Known ghosts, add as many whens as needed.
+			{
+				{
+				res_reference0 = "Gaster" //setting the res reference flag so the ghost is targeted and will respond. first ever times
+
+				"\0\s[6]Hello, Gaster.\w8\w8\e"
+				}
+			}
+
+			others //Ghosts there is no specific greeting for.
+			{
+				res_reference0 = _randghost
+
+				"\0\s[0]Hello, %(_randghost). Don't bother me and I won't bother you.\w8\w8\e"
+			}
+		}
+	}
+	else //If no ghosts are open.
+	{
+
+		"\0\s[0]...Oh. No one's there. Why did you click the option then? \s[9]Was it an attempt to trick me into talking to nobody?\e"
+	}
 }

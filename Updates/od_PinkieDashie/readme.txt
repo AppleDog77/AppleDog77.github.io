@@ -1,6 +1,6 @@
 --PPRD Readme--
 Created by Odie at odiesocean.wordpress.com.
-My first ever ghost! Welcome to the Pinkie Pie and Rainbow Dash ghost! Pinkie and Dashie chat on your screen and you can pet them on their head and face (by moving the mouse over those areas, not clicking, although you can use the mouse wheel also), or even kiss (double click) them on those two places :P If you double click anywhere else on Pinkie, a menu appears which you can use to hear what's on the duo's mind currently, hear the last thing they said, play a game, have them ask you a question, or ask about their lives. If you double click on Rainbow, you'll get some cool stuff ;) but other than that, all you can do is report a bug, since there's no auto-updating currently.
+My first ever ghost! Welcome to the Pinkie Pie and Rainbow Dash ghost! Pinkie and Dashie chat on your screen and you can pet them on their head and face (by moving the mouse over those areas, not clicking, although you can use the mouse wheel also), or even kiss (double click) them on those two places :P If you double click anywhere else on Pinkie, a menu appears which you can use to hear what's on the duo's mind currently, hear the last thing they said, play a game, have them ask you a question, or ask about their lives. If you double click on Rainbow, you'll get some cool stuff ;) but other than that, you can report a bug or update 'em.
 
 Hotkeys:
 t - talk

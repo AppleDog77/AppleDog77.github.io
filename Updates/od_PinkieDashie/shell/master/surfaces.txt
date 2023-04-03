@@ -2,6 +2,154 @@
 
 version,1
 
+surface.append0-1509
+{
+collision0,17,3,50,21,Head
+collision1,15,23,40,42,Face
+}
+
+surface.append10-2509
+{
+collision0,17,3,50,21,Head
+collision1,15,23,40,42,Face
+}
+
+sakura.tooltips
+{
+Head,Hi, I'm Pinkie Pie and this is my head! Pet me!
+Face,Hi, I'm Pinkie Pie and this is my face! Boop me!
+}
+
+kero.tooltips
+{
+Head,What's up? I'm Rainbow Dash and this is my head. Pets?
+Face,Hey, I'm Rainbow Dash and this is my face! Aw yeah! Boops!
+}
+
+sakura.cursor
+{
+mouseup0,Head,system:hand
+mousedown0,Head,system:finger
+mouseup1,Face,system:hand
+mousedown1,Face,system:grip
+}
+
+kero.cursor
+{
+mouseup0,Head,system:hand
+mousedown0,Head,system:finger
+mouseup1,Face,system:hand
+mousedown1,Face,system:grip
+}
+//Side Character Embarrassed pose
+surface11
+{
+element1,overlay,surface2501.png,0,0
+}
+
+//Side Character Surprised pose
+surface12
+{
+element1,overlay,surface2502.png,0,0
+}
+
+//Side Character Worried pose
+surface13
+{
+element1,overlay,surface2503.png,0,0
+}
+
+//Side Character Sad/Disappointed pose
+surface14
+{
+element1,overlay,surface2504.png,0,0
+}
+
+//Side Character Grinning pose
+surface15
+{
+element1,overlay,surface2505.png,0,0
+}
+
+//Side Character Superhappy pose
+surface16
+{
+element1,overlay,surface2506.png,0,0
+}
+
+//Side Character Angry pose
+surface17
+{
+element1,overlay,surface2507.png,0,0
+}
+
+//Side Character Thoughtful pose
+surface18
+{
+element1,overlay,surface2508.png,0,0
+}
+
+//Side Character Bored pose
+surface19
+{
+element1,overlay,surface2509.png,0,0
+}
+
+//Main Character Embarrassed pose
+surface1
+{
+element0,overlay,surface1501.png,0,0
+}
+
+//Main Character Surprised pose
+surface2
+{
+element0,overlay,surface1502.png,0,0
+}
+
+//Main Character Worried pose
+surface3
+{
+element0,overlay,surface1503.png,0,0
+}
+
+//Main Character Sad/Disappointed pose
+surface4
+{
+element0,overlay,surface1504.png,0,0
+}
+
+//Main Character Grinning pose
+surface5
+{
+element0,overlay,surface1505.png,0,0
+}
+
+//Main Character Superhappy pose
+surface6
+{
+element0,overlay,surface1506.png,0,0
+}
+
+//Main Character Angry pose
+surface7
+{
+element1,overlay,surface1507.png,0,0
+}
+
+//Main Character Thoughtful Pose
+surface8
+{
+element1,overlay,surface1508.png,0,0
+}
+
+//Main Character Bored pose
+surface9
+{
+element1,overlay,surface1509.png,0,0
+}
+
+//Original text for reference:
 //---------------------------Surfaces.txt--------------------------
 //Blegh alright here we go. Surfaces.txt is the backbone of the shell you make for your ghost. Making the images isn't enough, a ghost needs something to tell it where those images go and how to display them, and that's where surfaces.txt comes in.
 
@@ -89,7 +237,7 @@ version,1
 //surface.append500-590,205,!507-509 it would do the same, except it would skip Surfaces507 through 509.
 //you can have multiple surface.appends as well, if you want to append one set of code to one range of surfaces and another to another. For example, one set of collisions to your main character and one to your side character.
 
-//see below for him
+//see above for him
 
 //I talk about collisions a bit more in detail just below when we go into surface0, so I won't get too much into the exact nature of a collision up here. Because this is under surface.append, that means that these collisions are being set for every surface between the number range specified, in this case every Surface from 500 to 590.
 
@@ -105,11 +253,7 @@ version,1
 
 //--The Main Character's Poses---------------------------------------------------------
 
-surface0
 //surface0 is the basic default pose for your main character. I'll include a few examples of things you can do in this pose, but you won't have to use any of them if you don't want to. They're mostly for (my) reference and advanced users for the most part.
-{
-collision0,17,3,50,21,Head
-collision1,15,23,40,42,Face
 
 //Collisions define "hot spots" on your ghost where the user can pet or double click them (as defined in mouse.dic). You can see that there are two collisions here, collision0 and collision1. You can add more by copypasting and raising the number, like collision2, collision3, collision4, and so on.
 //The four numbers after that are x/y coordinates. Specifically, the first two numbers are the x/y coordinates of the TOP LEFT corner of your hotspot. The third and fourth numbers are the coordinates of the BOTTOM RIGHT corner of the hotspot. Essentially, this is outlining a rectangle.
@@ -121,9 +265,8 @@ collision1,15,23,40,42,Face
 
 //If you REALLY can't figure out collisions and just can't get them to work, you can delete the two collision lines. This will make your ghost un-pettable though and much of what you defined in mouse.dic won't work. Their menus should still function though I think. But if you are desperate, this is an option.
 
-element0,overlay,surface0.png,0,0
+//element0,overlay,surface0.png,0,0
 //Here is the line of code that defines the base image we'll be using for the ghost. If you aren't just replacing my images and moving on, you'll want to replace the surface0.png part with whatever image file you're using as your base pose. But really, your base default pose should ALWAYS be surface0.png for your main character. There are very few situations where this line would need to be changed in any way. Likewise, I wouldn't change it for your secondary character's default pose either.
-}
 
 //*********************Advanced User Info*******************************
 //These text boxes are meant for those who have an interest in expanding or using more complicated functions in their ghost. Also for my own reference in the future since I plan on using this template too, haha. If you have no interest in any of this and just want to keep things as simple as possible, feel free to skip these boxes.
@@ -339,73 +482,13 @@ element0,overlay,surface0.png,0,0
 //Wow, that was a lot of really complicated text. But don't worry, from this part on, the surfaces will be very very short and simple! That's because this template is set up to use stationary images for poses instead of animated ones like surface0 above. Because the other surfaces won't have blinking eyes or moving mouths or anything like that, all you have to do is put in the right file number and they'll be done. And if you're just replacing my images, you probably won't have to do anything!
 //This isn't to say you can't ADD blinking and talking frames to these surfaces if you want to. It's easy! All you have to do is copy the right code chunks from surface0 and paste them in here, then replace the file numbers as you need. And you'd have to draw the frames of course.
 
-//Main Character Embarrassed pose
-surface1
-{
-element0,overlay,surface1501.png,0,0
-}
-
-//Main Character Surprised pose
-surface2
-{
-element0,overlay,surface1502.png,0,0
-}
-
-//Main Character Worried pose
-surface3
-{
-element0,overlay,surface1503.png,0,0
-}
-
-//Main Character Sad/Disappointed pose
-surface4
-{
-element0,overlay,surface1504.png,0,0
-}
-
-//Main Character Grinning pose
-surface5
-{
-element0,overlay,surface1505.png,0,0
-}
-
-//Main Character Superhappy pose
-surface6
-{
-element0,overlay,surface1506.png,0,0
-}
-
-//Main Character Angry pose
-surface7
-{
-element1,overlay,surface1507.png,0,0
-}
-
-//Main Character Thoughtful Pose
-surface8
-{
-element1,overlay,surface1508.png,0,0
-}
-
-//Main Character Bored pose
-surface9
-{
-element1,overlay,surface1509.png,0,0
-}
-
-
 //--The Side Character's poses------------------
 //I actually intended to do the same thing here with Triangle's default pose as I did with Girl, but then I remembered that he has no mouth, so he can't even use talking frames, haha. He can however use blinking frames! So I'm going to copy the same blinking chunk from surface0 and put it here.
 
-surface10
-{
-collision0,17,3,50,21,Head
-collision1,15,23,40,42,Face
-
 //Here are Triangle's collisions. Because they are within Surface10, they only apply when he is in this pose. As mentioned above in surface0, you can set unique collisions for any Surface you like, or you can use surface.append at the beginning of this file to apply the same collisions to a wide range of surfaces.
 
-element0,overlay,surface10.png,0,0
-}
+//element0,overlay,surface10.png,0,0
+
 //Here is Triangle's base frame.
 
 //Blinking
@@ -438,82 +521,12 @@ element0,overlay,surface10.png,0,0
 
 //And that's it for Triangle's default pose! Now we can move on. Like with the main character poses above, all we have to do for the following surfaces is make sure they're pointing at the right file number!
 
-//Side Character Embarrassed pose
-surface11
-{
-element1,overlay,surface2501.png,0,0
-}
-
-//Side Character Surprised pose
-surface12
-{
-element1,overlay,surface2502.png,0,0
-}
-
-//Side Character Worried pose
-surface13
-{
-element1,overlay,surface2503.png,0,0
-}
-
-//Side Character Sad/Disappointed pose
-surface14
-{
-element1,overlay,surface2504.png,0,0
-}
-
-//Side Character Grinning pose
-surface15
-{
-element1,overlay,surface2505.png,0,0
-}
-
-//Side Character Superhappy pose
-surface16
-{
-element1,overlay,surface2506.png,0,0
-}
-
-//Side Character Angry pose
-surface17
-{
-element1,overlay,surface2507.png,0,0
-}
-
-//Side Character Thoughtful pose
-surface18
-{
-element1,overlay,surface2508.png,0,0
-}
-
-//Side Character Bored pose
-surface19
-{
-element1,overlay,surface2509.png,0,0
-}
-
 //And that's it! We're done! You can move on to some other aspect of your ghost now. But before we go, there are a few more little things you may want to think about.
 
 
 //--Unique Collision cursors------------------
 
 //If you messed with the default Emily ghost at all, you may have noticed that when your cursor was over her chest, it changed to a sort of gripping hand instead of a pointer finger. "How do I do that?" you may wonder. Setting up sakura.cursor is how!
-
-sakura.cursor 
-{ 
-mouseup0,Head,system:hand 
-mousedown0,Head,system:finger 
-mouseup1,Face,system:hand 
-mousedown1,Face,system:grip 
-} 
-
-kero.cursor 
-{ 
-mouseup0,Head,system:hand 
-mousedown0,Head,system:finger 
-mouseup1,Face,system:hand 
-mousedown1,Face,system:grip 
-} 
 
 //What this does is change the mouse cursor. You can see it's split into mouseup and mousedown, and it uses the names you gave your Collisions up there. So when the mouse is hovering over Girl's head, it uses the system cursor that looks like a hand. When you click and hold, it looks like a finger. You can uncomment these lines to see for yourself. Likewise, when you hover your mouse over Girl's face, it looks like a hand, and when you click down, it looks like a gripping hand. You can keep adding unique cursors for all your collisions by sequentially numbering them, like mouseup/down2, mouseup/down3, and so on.
 
@@ -526,32 +539,9 @@ mousedown1,Face,system:grip
 
 //Maybe you'd like a tooltip to pop up when your user is hovering over a hitbox on your ghost. It works much the same as above!
 
-sakura.tooltips 
-{ 
-Head,Hi, I'm Pinkie Pie and this is my head! 
-Face,Hi, I'm Pinkie Pie and this is my face!  
-}
-
-kero.tooltips 
-{ 
-Head,What's up? I'm Rainbow Dash and this is my head.
-Face,Hey, I'm Rainbow Dash and this is my face! Aw yeah! 
-}
-
 //Basically put the name of your collision first, then what you want the tooltip to say. Uncomment this function and hover over Girl's hotspots and you can see how it works. It may be handy for warning your users about punching your ghost or something, or for silly reasons, I dunno. It's up to you!
 //Like above, replace sakura with kero for the secondary character.
 
-surface.append0-1509
-{
-collision0,17,3,50,21,Head
-collision1,15,23,40,42,Face
-}
-
-surface.append10-2509
-{
-collision0,17,3,50,21,Head
-collision1,15,23,40,42,Face
-}
 //--Surface.alias------------------
 
 

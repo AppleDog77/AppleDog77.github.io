@@ -2,19 +2,6 @@
 
 version,1
 
-surface0
-{
-collision0,48,16,210,26,Head
-collision1,60,27,198,140,Face
-collision2,24,151,35,162,Button
-collision3,36,152,45,161,Nottub
-
-animation0.interval,random,4
-animation0.pattern1,overlay,1101,0,0,0
-animation0.pattern2,overlay,1102,100,0,0
-animation0.pattern3,overlay,-1,50,0,0
-}
-
 //Main Character Embarrassed pose
 surface1
 {
@@ -69,12 +56,17 @@ surface9
 element1,overlay,surface1509.png,0,0
 }
 
-surface.append0-1509
+surface.append0-9
 {
 collision0,48,16,210,26,Head
 collision1,60,27,198,140,Face
 collision2,24,151,35,162,Button
 collision3,36,152,45,161,Nottub
+
+animation0.interval,random,4
+animation0.pattern1,overlay,1101,0,0,0
+animation0.pattern2,overlay,1102,100,0,0
+animation0.pattern3,overlay,-1,50,0,0
 }
 
 sakura.cursor

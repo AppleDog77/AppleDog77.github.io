@@ -55,6 +55,7 @@ MenuRun
 	"\![*]\q[Ask me anything,quiz]\n/
 	\![*]\q[Ask him stuff,questions]\n/
 	\![*]\q[Ask about life,livin]\n/
+	\![*]\q[Chat with others,socialize]\n/
 	\![*]\q[Vent at him,ventin]\n/
 	\![*]\q[Offer him something,items]\n/
 	\![*]\q[Do some stuff,xtrastuf]\n\n[half]/
@@ -127,6 +128,13 @@ Select.ohno
 {
 	narrMood--
 	"\0\s[0]Wait, what? That isn't supposed to be here! Disregard it, please. Why did you even pick it?...\e"
+}
+
+Select.socialize
+{
+	"\0\s[0]Talk To...\n"
+	--
+	"\![*]\q[Me,OnAiTalk]\n\![*]\q[Other Ghost,OnStartTalking]\e"
 }
 
 Select.xtrastuf
@@ -820,8 +828,15 @@ Select.dosomething
 		\![*]\q[Open SSP Preferences,sspconfig]\n/
 		\![*]\q[Empty Recycle Bin,ChoiceGarbagecan]\n/
 		\![*]\q[System Information,ChoiceSystemInformation]\n\n/
+		\![*]\q[Update,sakuraupdatecheck]\n/
+		\![*]\q[Bug report,bugreport]\n\n/
 		\![*]\q[Test variable,testvariable]\n\n/
  		\![*]\q[Back to main menu,BACKTOMENU]\e"
+}
+
+Select.sakuraupdatecheck
+{
+	"\0\s[0]\![updatebymyself]\e"
 }
 
 //When the user clicks Open Calender. This will open the calender function of SSP, an in-built feature that you don't have to worry about in the least.
@@ -929,14 +944,14 @@ OpenKeroMenu
 //If you click cancel. Replace dialogue as you want.
 Select.keroCANCEL
 {
-	"\1\s[10]Cancelled.\e"
+	"\1\s[10]...\e"
 }
 
 
 //This is when they select bug report. This is mostly meant to briefly give the user information about you, the creator, and how to report a problem to you. This can be handy if the person forgot where they got their ghost or how to contact you. Add whatever info you like here.
 Select.bugreport
 {
-"\1\s[10]Report bugs to derederedoggy@gmail.com. \w5We were downloaded from \_a[http://odiesocean.wordpress.com/]Odie's Ocean\_a\e"
+"\0\s[0]Report bugs to derederedoggy@gmail.com. Downloaded from \_a[http://appledog77.github.io/]Magic Lunar Petz\_a.\e"
 }
 
 //When clicked, this will automatically tell the ghost to check for updates. More detail on updates in etc.dic. You can leave this alone.

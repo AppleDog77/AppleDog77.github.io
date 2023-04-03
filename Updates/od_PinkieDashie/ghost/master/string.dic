@@ -28,7 +28,7 @@ On_homeurl
 {
 
 //	"https://odiesocean.wordpress.com/downloads/" <-- a real URL, but not one that'll update anything automatically. Go there for rare downloads and backup the original files anyway when translating though!
-//	"http://www.somekindofwebhost.com/yourghostsdirectory/nothappening.hmlt"
+//	"http://www.somekindofwebhost.com/yourghostsdirectory/nothappening.hmlt" kept for funnies
 // https://AppleDog77.github.io/AppleDog77.github.io/Updates/od_PinkieDashie/
 "https://raw.githubusercontent.com/AppleDog77/AppleDog77.github.io/main/Updates/od_PinkieDashie/"
 }
@@ -208,7 +208,7 @@ On_kero.recommendsites
  
 On_updatebutton.caption
  {
-	"Can't Auto-Update, Get Updates from Odie's Ocean"
+	"Update (Woo, new stuff!)"
 }
 
 //---- Dress-up Menu Caption ----------------------------------------------------------

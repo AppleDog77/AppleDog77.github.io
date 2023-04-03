@@ -6,7 +6,7 @@ Greetings, and welcome to The Narrator, your new Desktop Assistant and Companion
 -Chapter 1: The Basics-
 My second ever ghost! Welcome to The Narrator ghost! The Narrator rambles and blabs on your screen and you can pet him on their head and face (by dragging the mouse along his head, or using the mouse wheel). He's not very comfortable with pets at first, though... Don't hit him or else he- Why did I get cut off? Nevermind, anyway you can also double click his buttons for fun. He goes by he/they pronouns. He has two emotions currently; happy (colourful balls, based on the Zending from The Stanley Parable) and unamused (his 'eyelid' goes down).
 
-If you double click anywhere else on The Narrator, a menu appears which you can use to give 'em gifts, hear what's on his mind currently, hear the last thing they said, ask him questions, have them ask you a question, play some games with him (in Do some stuff), have them insult you, vent at him, or ask about his life.
+If you double click anywhere else on The Narrator, a menu appears which you can use to give 'em gifts, hear what's on his mind currently, hear the last thing they said, ask him questions, have them ask you a question, play some games with him (in Do some stuff), have them insult you, vent at him, or ask about his life. In the Functions menu, you can report a bug or update him. 
 
 There may or may not be a relationship (and mood) level thing as well... ;)
 
@@ -31,6 +31,7 @@ This ghost is redistributable, but don't delete anything! You can fix minor erro
 Ver 0.1 - First beta release. (Tue, Feb 14, 2023 ;))
 Ver 0.2 - Second beta release. (Wed, Mar 1, 2023)
 Ver 1.0 - First public release! Various bugs fixed (with some at least being temporarily worked around). Custom cursor, mouse wheel, a couple chains, and misc stuff added. (Thur, Mar 9, 2023)
+Ver 1.1 - Appended blinking to other surfaces, fixed some typos, and added some dialogue. (Mon, Apr 3, 2023)
 
 
 ...

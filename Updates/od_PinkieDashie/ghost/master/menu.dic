@@ -763,7 +763,7 @@ Select.keroCANCEL
 //This is when they select bug report. This is mostly meant to briefly give the user information about you, the creator, and how to report a problem to you. This can be handy if the person forgot where they got their ghost or how to contact you. Add whatever info you like here.
 Select.bugreport
 {
-"\1\s[10]Aww, what's the bug? \w5Report bugs to derederedoggy@gmail.com. \w5We were downloaded from \_a[http://odiesocean.wordpress.com/]Odie's Ocean\_a.\e"
+"\0\s[0]Aww, what's the bug? \w5Report bugs to derederedoggy@gmail.com. \1\s[10]\w5We were downloaded from \_a[http://appledog77.github.io/]Magic Lunar Petz\_a.\e"
 }
 
 //When clicked, this will automatically tell the ghost to check for updates. More detail on updates in etc.dic. You can leave this alone.

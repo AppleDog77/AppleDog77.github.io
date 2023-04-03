@@ -3,7 +3,7 @@ __system_settings_version__,2
 balloon,E:\Bippa\Windows\Whine\ssp_2_5_07f\balloon\twinkling_galaxy_hues\
 Char1.balloon.isleft,1
 inputbox.left,960
-balloon0.offset,225.-240
+balloon0.offset,224.-224
 scriptbox.left,960
 Char0.centery,1015
 Char2.centery,560
@@ -13,8 +13,8 @@ Char.VirtualDesktop,bb64d5b7-4de3-4ab2-a87c-db7601aea7dc
 Char2.center,1760
 Char0.center,1791
 scriptbox.top,520
-Char1.centery,786
-Char1.center,1760
+Char1.centery,717
+Char1.center,1453
 seriko.scaling.percent.x,100
 seriko.scaling.percent.y,100
 Char2.balloon.isleft,1
