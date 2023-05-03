@@ -52,7 +52,9 @@ OnFirstBoot
 	deleteshitai = "OFF" //Sets whether or not the user can uninstall the ghost to "OFF". The user can change it later in the config menu (see menu.dic). 
 	nowshell = "master" //This is for a special if check in aitalk.dic to see what shell the ghost is using. You should use the name of your default shell folder here.
 	narrFeelings = 0 //Setting relationship level to neutral
-	narrMood = 0 //Setting mood level to neutral
+	narrMood = 50 //Setting mood level to neutral
+	stanFeelings = 0
+	stanMood = 50
 	givenfood = 0 //Resetting item limits
 	givenwater = 0
 	givencoffee = 0
@@ -60,6 +62,8 @@ OnFirstBoot
 	givenbooks = 0
 	givenwall = 0
 	givenscreen = 0
+	stanleymode = 0 //the mode itself which allows Stanley to return
+	stanleyback = 0 //for remembering that it's unlocked
 	firstBoot = 1 //This marks that this is the first time you've run the ghost. It's so it won't reroute to general name changing dialogue when the user inputs their name.
 	
 	if reference0 > 0
@@ -196,11 +200,23 @@ BootReset
 	givenbooks = 0
 	givenwall = 0
 	givenscreen = 0
+	stanleymode = 0 //the mode itself which allows Stanley to return
 	narrMood = RAND(50) + (narrFeelings)
 	{
 	if narrMood >= 100
 		{
 		narrMood = 100
+		}
+	else
+		{
+		"\0\s[0]\e"
+		}
+	}
+	stanMood = RAND(50) + (narrFeelings)
+	{
+	if stanMood >= 100
+		{
+		stanMood = 100
 		}
 	else
 		{
@@ -411,6 +427,7 @@ OnGhostChanging
  {
 	if reference0 == "Narrator" //Replace this with the name of your Sakura character as you put in install.txt or descript.txt. I set this up to use the full ghost's name with Hunter and Smoker but I forget exactly how I did it and I'm having trouble getting it to work again. I think I just didn't define the Sakura or Kero names in either descript.txt or install.txt. You can experiment with it yourself. Otherwise, leave it as your Sakura character's name.
 	{
+		stanleymode = 0
 		"\0\s[0]Reload!\w8\w8\e"
 		//Replace this dialogue with whatever you like.
 	}
@@ -433,6 +450,7 @@ OnGhostChanged
 	--
 	if reference0 == "Narrator" //As above, this should be the name of your ghost as in install.txt or descript.txt.
 	{
+		stanleymode = 0
 		"\0\s[0]Reloaded.\e"
 	}
 	else //If you're switching to them from another ghost...

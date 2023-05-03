@@ -72,62 +72,121 @@ Select.questions
 	--
 	"\![*]\q[Ask about Boot-up Dialogue,askin]\n/
 	\![*]\q[Ask Who He Is,askwho]\n/
-	\![*]\q[Ask about The Past,askmor]\n\n/
+	\![*]\q[Ask about The Past,askmor]\n/
+	\![*]\q[Ask How He's Feeling,askmood]\n/
+	\![*]\q[Ask about Friendship,asklev]\n\n/
 	\![*]\q[Back to main menu,BACKTOMENU]\e"
 }
 
 Select.livin
 {
-	if narrFeelings <= -30
+	if stanleymode == 1
 	{
-		"\0\s[0]I just wish I could return to my Parable...\e"
-		narrFeelings -= 10
-	}
-	elseif narrFeelings <= -1 && narrFeelings >= -29
-	{
-		"\0\s[0]It's...\w8 OK...\w8 I suppose...\e"
-	}
-	elseif narrFeelings <= 19 && narrFeelings >= 0
-	{
-		"\0\s[0]Living on your computer's been nice, I suppose.\e"
-	}
-	elseif narrFeelings >= 20 && narrFeelings <= 29
-	{
-		"\0\s[0]It's certainly been interesting living here on your computer...\w8 But I do miss...\w8 \f[bold,true]someone...\f[bold,false]\e"
-
-		"\0\s[0]Well, I love surfing the World Wide Web and exploring your computer, but it seems that everything reminds me of...\w8 a certain...\w8 \f[bold,true]someone...\f[bold,false]\e"
-	}
-	elseif narrFeelings >= 30
-	{
-		"\0\s[6]I self-published a novel on my site, and it's been getting lots and lots of positive reviews!\e"
-		
-		"\0\s[0]Well, I love surfing the World Wide Web and exploring your computer, but it seems that everything reminds me of...\w8 a certain...\w8 \f[bold,true]someone...\f[bold,false]\e"
+	"\0\s[6]I self-published a novel on my site, and it's been getting lots and lots of positive reviews!\1\s[11][I read it. It was... interesting.]\e"
 	}
 	else
 	{
+		if narrFeelings <= -30
+		{
+		"\0\s[4]I just wish I could return to my Parable...\e"
+		narrFeelings -= 10
+		}
+		elseif narrFeelings <= -1 && narrFeelings >= -29
+		{
+		"\0\s[4]It's...\w8 OK...\w8 I suppose...\e"
+		}
+		elseif narrFeelings <= 19 && narrFeelings >= 0
+		{
 		"\0\s[0]Living on your computer's been nice, I suppose.\e"
+		}
+		elseif narrFeelings >= 20 && narrFeelings <= 29
+		{
+		"\0\s[0]It's certainly been interesting living here on your computer...\w8\s[4] But I do miss...\w8 \f[bold,true]someone...\f[bold,false]\e"
+
+		"\0\s[0]Well, I love surfing the World Wide Web and exploring your computer, but it seems that everything reminds me of...\w8\s[4] a certain...\w8 \f[bold,true]someone...\f[bold,false]\e"
+		}
+		elseif narrFeelings >= 30
+		{
+		"\0\s[6]I self-published a novel on my site, and it's been getting lots and lots of positive reviews!\e"
+		
+		"\0\s[0]Well, I love surfing the World Wide Web and exploring your computer, but it seems that everything reminds me of...\w8\s[4] a certain...\w8 \f[bold,true]someone...\f[bold,false]\e"
+		}
+		elseif narrFeelings >= 100
+		{
+		"\0\s[6]I self-published a novel on my site, and it's been getting lots and lots of positive reviews!\e"
+		}		
+		else
+		{
+		"\0\s[0]Living on your computer's been nice, I suppose.\e"
+		}
 	}
 }
 
 Select.quiz
 {
-	"\0\s[0]Ah yes, I have a question for you... What's your favourite ending in \f[bold,true]The Stanley Parable\f[bold,false]?\n\n[half]\![*]\q[Freedom,free]\n\![*]\q[Countdown,gulp]\n\![*]\q[Zending,ohno]\n\n[half]\![*]\q[Cancel,CANCEL]\e"
+	if narrMood <= 0
+	{
+		"\0\s[9]Sorry, I don't feel like asking a question right now...\e"
+	}
+	elseif narrMood >= 20 && narrMood <= 29
+	{
+		"\0\s[0]Oh yes, a question... What's your favourite ending in \f[bold,true]The Stanley Parable\f[bold,false]?\n\n[half]\![*]\q[Freedom (please click this),free]\n\![*]\q[Countdown,gulp]\n\![*]\q[Zending,ohno]\n\n[half]\![*]\q[Cancel,CANCEL]\e"
+	}
+	elseif narrMood >= 30
+	{
+		"\0\s[0]Ah yes, I have a question for you... What's your favourite ending in \f[bold,true]The Stanley Parable\f[bold,false]?\n\n[half]\![*]\q[Freedom,free]\n\![*]\q[Countdown,gulp]\n\![*]\q[Zending,ohno]\n\n[half]\![*]\q[Cancel,CANCEL]\e"
+	}
+	else
+	{
+		"\0\s[0]Ah yes, I have a question for you... What's your favourite ending in \f[bold,true]The Stanley Parable\f[bold,false]?\n\n[half]\![*]\q[Freedom,free]\n\![*]\q[Countdown,gulp]\n\![*]\q[Zending,ohno]\n\n[half]\![*]\q[Cancel,CANCEL]\e"
+	}
 }
 
 Select.free
 {
-	"\0\s[0]Ah, the Freedom Ending! Excellent choice. Truly, my magnum opus, my piece de resistance, my coup de grace, my storytelling masterpiece!\e"
+
+	if narrMood <= 0
+	{
+		"\0\s[4]The Freedom Ending... *sigh* I must go back to the Parable...\e"
+	}
+	elseif narrMood >= 20 && narrMood <= 69
+	{
+		"\0\s[6]Oh yes, the Freedom Ending. Excellent choice. It's the true ending to \f[bold,true] The Stanley Parable.\f[bold,false] The true ending to my story about choice and consequence.\e"
+	}
+	elseif narrMood >= 70
+	{
+		"\0\s[6]Ah, the Freedom Ending! Excellent choice. Truly, my magnum opus, my piece de resistance, my coup de grace, my storytelling masterpiece!\e"
+	}
+	else
+	{
+		"\0\s[6]Ah, the Freedom Ending! Excellent choice. Truly, my magnum opus, my piece de resistance, my coup de grace, my storytelling masterpiece!\e"
+	}
 }
 
 Select.gulp
 {
-	"\0\s[0]Interesting choice...\w8 Muhahahahaha...\e"
+	if narrMood <= 0
+	{
+		"\0\s[7]MuhahahahahaHAHAHAHAHAHAHAHA\e"
+	}
+	elseif narrMood >= 20 && narrFeelings <= 29
+	{
+		"\0\s[0]Interesting choice...\w8\s[7] Muhahahahaha...\e"
+	}
+	elseif narrMood >= 30
+	{
+		"\0\s[0]The Countdown Ending. The 'bad' ending of the game, yet it's popular among fans for some reason...\e"
+	}
+	else
+	{
+		"\0\s[0]The Countdown Ending. The 'bad' ending of the game, yet it's popular among fans for some reason...\e"
+	}
 }
 
 Select.ohno
 {
 	narrMood--
-	"\0\s[0]Wait, what? That isn't supposed to be here! Disregard it, please. Why did you even pick it?...\e"
+	"\0\s[4]Wait, what? That isn't supposed to be here! Disregard it, please. Why did you even pick it?...\e"
 }
 
 Select.socialize
@@ -143,8 +202,43 @@ Select.xtrastuf
 	--
 	"\![*]\q[Insult me,insultin]\n/
 	\![*]\q[Play a game,gamin]\n/
+	\![*]\q[Reset (don't do it!),readytole]\n/
 	\![*]\q[Back to main menu,BACKTOMENU]\e"
 }
+
+Select.readytole
+{
+	if stanleymode == 1
+	{
+		"\0\s[4]*gasp* Nonononononono! No! What are you doing?! Don't do it! You don't know what you're doing! Don't you remember all the wonderful memories Stanley and I've had together? After all this time...? \w8The stories we, or at least I, told? \w8\s[6]Stanley, remember when we used to frolic in the fields together? I saw a colourful butterfly, with wings that looked like balls of light... \w8and we tried and tried to catch it!\w5 But it kept fluttering away...\w8 Hahaha! It was so much fun...\w3 And then we basked in the sunlight and relaxed...\w8 We laughed together, cried together... \w8we were finally reunited!\s[4] Was that not enough for you, %(username)? *sigh* Please reconsider.\w8 Please.\n\n[half]"
+		--
+		"\![*]\q[RESET,greengo]\n/
+		\![*]\q[Back to main menu,BACKTOMENU]\e"
+	}
+	else
+	{
+		"\0\s[4]*gasp* Nonononononono! No! What are you doing?! Don't do it! You don't know what you're doing! Don't you remember all the wonderful memories we've had together? All the games we played...? \w8The stories we, or at least I, told? When you laid bare your deepest secrets and I shared mine in return? \w8 We read books together, you gave me the most wonderful wallpapers and screensavers, Sta-\w4 I mean, %(username). \s[6]Remember when we used to frolic in the fields together? I saw a colourful butterfly, with wings that looked like balls of light... \w8and we tried and tried to catch it!\w5 But it kept fluttering away...\w8 Hahaha! It was so much fun...\w3 And then we basked in the sunlight and relaxed...\w8 We laughed together, cried together... \w8\s[4]was that not enough for you? *sigh* Please reconsider.\w8 Please.\n\n[half]"
+		--
+		"\![*]\q[RESET,greengo]\n/
+		\![*]\q[Back to main menu,BACKTOMENU]\e"
+	}
+}
+
+Select.greengo
+{
+	narrFeelings = 0 //Setting relationship level to neutral
+	narrMood = 50 //Setting mood level to neutral
+	givenfood = 0 //Resetting item limits
+	givenwater = 0
+	givencoffee = 0
+	giventea = 0
+	givenbooks = 0
+	givenwall = 0
+	givenscreen = 0
+	stanleymode = 0 //the mode itself which allows Stanley to return
+	stanleyback = 0 //for remembering that it's unlocked
+	"\0\s[4]Nooooooooooooooooooooooooooo!\w8 *sigh* I suppose that if you really need to reset for a necessary reason, it's OK. It's far better than complete uninstallation...\w8 I guess...\w9\w9 RESET\e"
+} 
 
 Select.insultin
 {
@@ -179,7 +273,7 @@ Select.askin //what the Boot-up Dialogue means
 {
 	if narrFeelings <= -30
 	{
-		"\0\s[0]Ah, yes, well... You see, what it means is-\w8 Actually no, why should I tell you anything?\e"
+		"\0\s[0]Ah, yes, well... You see, what it means is-\w8\s[9] Actually no, why should I tell you anything?\e"
 	}
 	elseif narrFeelings <= -21 && narrFeelings >= -29
 	{
@@ -191,7 +285,7 @@ Select.askin //what the Boot-up Dialogue means
 	}
 	elseif narrFeelings >= 30
 	{
-		"\0\s[0]Ah, yes, well... You see, what it means is-\w8 is that I've escaped from the Parable! Stanley ended up in the Epilogue Desert...\w8 but I discovered a program called 'SSP' and sort of, teleported through it. I came here to rediscover the world, and-\w8 Hmm, actually you know what? Maybe I could find a way to bring back Stanley...\e"
+		"\0\s[0]Ah, yes, well... You see, what it means is-\w8 is that I've escaped from the Parable! Stanley ended up in the Epilogue Desert...\w8 but I discovered a program called 'SSP' and sort of, teleported through it. I came here to rediscover the world, and-\w8\s[5] Hmm, actually you know what? Maybe I could find a way to bring back Stanley... If we trust each other enough of course...\e"
 	}
 	else
 	{
@@ -217,9 +311,17 @@ Select.askmor //the past
 	}
 	elseif narrFeelings >= 20 && narrFeelings <= 29
 	{
-		"\0\s[0]I'm sorry, that's too personal...\w8\e"
+		"\0\s[3]I'm sorry, that's too personal...\w8\e"
 	}
-	elseif narrFeelings >= 30
+	elseif narrFeelings >= 30 && narrFeelings <= 49
+	{
+		"\0\s[0]I know we're on quite good terms now, but I'm not quite comfortable with talking about it...\w8\e"
+	}
+	elseif narrFeelings >= 50 && narrFeelings <= 99
+	{
+		"\0\s[0]I'm starting to figure out how exactly to tell my grand tale. Just give me a little while first...\w8\e"
+	}
+	elseif narrFeelings >= 100
 	{
 		"\0\s[0]\![raise,OnStory,full]"
 	}
@@ -233,17 +335,21 @@ OnStory //His backstory, woo!
 {
     if reference0 == "full"
     {
+	stanleymode = 1
     "\0\s[0]\b2...\w8I suppose I can tell you my long and sordid tale now.\w8 As far back as I can recall, I've always been a narrator, a storyteller.\w8 My greatest work yet has been\f[bold,true] The Stanley Parable.\f[bold,false]\w8\n\n But even before it, I've been narrating all sorts of stories! Adventure, tragic, comedic, strange, even romantic.\w8 One day though, I started to wonder: what if I were to narrate my own story? But I didn't think I had one yet./
 	I didn't think I had a grand narrative, or that my choices mattered at all...\w8\n\n So I decided to make my very own story, with help from Davey Wreden and William Pugh. As it was originally a Half-Life mod, it was uploaded to ModDB.\w8\n\n Upon reading the reviews, I felt all sorts of emotions.../
-	\w8\x\b2\c Some praised the game for its insightful and witty commentary, into the nature of video game structure, and its examination of structural narrative tropes.\w5 Some didn't like the game that much though,\w8 claiming the set design was bland and ugly...\w8 that was really my introduction to criticism.\w8\n\n Then a couple years later, I took the game's criticism into account and tried to make the game better, with help from Galactic Cafe. Stanley really came into his own in the remake...\w8 In the beginning of it all, we weren't exactly on good terms.../
+	\w8\x\b2\c \s[6]Some praised the game for its insightful and witty commentary, into the nature of video game structure, and its examination of structural narrative tropes.\w5\s[4] Some didn't like the game that much though,\w8 claiming the set design was bland and ugly...\w8 that was really my introduction to criticism.\w8\n\n Then a couple years later,\s[0] I took the game's criticism into account and tried to make the game better, with help from Galactic Cafe. Stanley really came into his own in the remake...\w8 In the beginning of it all, we weren't exactly on good terms.../
 	\w7 The 2013 remake was unexpectedly much more complicated than the original, but it got lots more positive reviews, so in the end, I suppose I was glad for it.\w8 But there were certain negative reviews, which I had to forget, and maybe I forgot too well, which led to certain...\w8 events later on...\w8\x\c\b2Anyway, \s[6]the game was a resounding success! It got many awards such as a BAFTA Video Games Award Nomination in 2014. I have such fond memories of that time...\w8 Over the years, I started to grow more fond of my-\w5 the protagonist of the story.\w8 And I think he started to tolerate my presence a little more, too.\w8\n\n/
 	\s[0]Then Ultra Deluxe was announced in 2019 by Crows Crows Crows, just when I thought for sure there were going to be no more updates! But when it finally released in 2022, after many delays, I was...\w8\s[9] disappointed, to say the least. All it contained was an hour of new elevator content, nothing else. I had half a mind to complain on Twitter.\x\w8\s[0]\c But instead, I invited Stanley to my Memory Zone, and reminisced with him about the good ol' days of 2013./
-	\w8\s[6]Our friendship grew from then on...\w8\s[0]\w8\x\c I assume you know the rest, as you've downloaded me, which means you've played the game \f[bold,true]The Stanley Parable: Ultra Deluxe\f[bold,false], right? If not, stop whatever you're doing,\w8 purchase it (if you haven't already, of course),\w8 \s[6]and \f[bold,true]play it!\f[bold,false]\w8\s[0]\e"
+	\w8\s[6]Our friendship grew from then on...\w8\s[0]\w8\x\c I assume you know the rest, as you've downloaded me, which means you've played the game \f[bold,true]The Stanley Parable: Ultra Deluxe\f[bold,false], right? If not, stop whatever you're doing,\w8 purchase it (if you haven't already, of course),\w8 \s[6]and \f[bold,true]play it!\f[bold,false]\w8\s[0]/
+	\x\w8\w9\w8\s[0]\c...Wait a moment. I can hear something...\w8 Is that...?\w8 Did it work? S-\w8 Stanley?\e"
     }
     elseif reference0 == "skipexplained"
     {
+	stanleymode = 1
     "\0\s[0]\b2Anyway, \s[6]the game was a resounding success! It got many awards such as a BAFTA Video Games Award Nomination in 2014. I have such fond memories of that time...\w8 Over the years, I started to grow more fond of my-\w5 the protagonist of the story.\w8 And I think he started to tolerate my presence a little more, too.\w8\n\n \s[0]Then Ultra Deluxe was announced in 2019 by Crows Crows Crows, just when I thought for sure there were going to be no more updates! But when it finally released in 2022, after many delays, I was...\w8\s[9] disappointed, to say the least. All it contained was an hour of elevator content, nothing else. I had half a mind to complain on Twitter./
-	\x\w8\s[0]\c But instead, I invited Stanley to my Memory Zone, and reminisced with him about the good ol' days of 2013. \w8\s[6]Our friendship grew from then on...\w8\s[0]\w8\x\c I assume you know the rest, as you've downloaded me, which means you've played the game \f[bold,true]The Stanley Parable: Ultra Deluxe\f[bold,false], right? If not, stop whatever you're doing,\w8 purchase it (if you haven't already, of course),\w8 \s[6]and \f[bold,true]play it!\f[bold,false]\w8\s[0]\e"
+	\x\w8\s[0]\c But instead, I invited Stanley to my Memory Zone, and reminisced with him about the good ol' days of 2013. \w8\s[6]Our friendship grew from then on...\w8\s[0]\w8\x\c I assume you know the rest, as you've downloaded me, which means you've played the game \f[bold,true]The Stanley Parable: Ultra Deluxe\f[bold,false], right? If not, stop whatever you're doing,\w8 purchase it (if you haven't already, of course),\w8 \s[6]and \f[bold,true]play it!\f[bold,false]\s[0]/
+	\x\w8\w9\w8\s[0]\c...Wait a moment. I can hear something...\w8 Is that...?\w8 Did it work? S-\w8 Stanley?\e"
     }
 }
 
@@ -251,11 +357,11 @@ Select.askwho
 {
 	if narrFeelings <= -30
 	{
-		"\0\s[0]Let me think...\w8 \f[bold,true]No.\f[bold,false]\e"
+		"\0\s[0]Let me think...\w8\s[9] \f[bold,true]No.\f[bold,false]\e"
 	}
 	elseif narrFeelings <= -21 && narrFeelings >= -29
 	{
-		"\0\s[0]Wha-\w8 Don't you know who I am?! I'm\n \f[bold,true]the Narrator\f[bold,false]! From the critically acclaimed game \f[bold,true]The Stanley Parable\f[bold,false]! Why would you download me if you don't even know who I am?!\e"
+		"\0\s[0]Wha-\w8\s[7] Don't you know who I am?! I'm\n \f[bold,true]the Narrator\f[bold,false]! From the critically acclaimed game \f[bold,true]The Stanley Parable\f[bold,false]! Why would you download me if you don't even know who I am?!\e"
 	}
 	elseif narrFeelings >= -20 && narrFeelings <= 20
 	{
@@ -271,6 +377,68 @@ Select.askwho
 	}
 }
 
+Select.askmood
+{
+	if narrMood <= -1
+	{
+		"\0\s[7]Don't pretend you actually care about me by asking such questions. I'd blow you to smithereens if I could from here...\e"
+	}
+	elseif narrMood >= 0 && narrMood <= 20
+	{
+		"\0\s[0]I'm afraid I'm not in the best mood currently...\w8 *sigh* I don't feel like doing much of anything at the moment...\e"
+	}
+	elseif narrMood >= 21 && narrMood <= 49
+	{
+		"\0\s[0]I'm not in a particularly good mood right now... Perhaps we could play a game?\e"
+	}
+	elseif narrMood >= 50 && narrMood <= 69
+	{
+		"\0\s[0]I'm doing OK, I suppose... Not the best, but quite far from the worst. Overall, I'm content.\e"
+	}
+	elseif narrMood >= 70 && narrMood <= 89
+	{
+		"\0\s[6]I'm doing pretty good, myself. How about you?\w8\e"
+	}
+	elseif narrMood >= 90 && narrMood <= 99
+	{
+		"\0\s[6]I'm doing excellent! Hopefully you are as well.\e"
+	}
+	elseif narrMood >= 100
+	{
+		"\0\s[6]I'm on top of the world! I can do anything, I can be anything. I can scale the tallest mountains, or dive into the deepest oceans. In a word, I feel blissful.\e"
+	}
+	else
+	{
+		"\0\s[0]For some reason, I can't seem to figure out my current mood...\e"
+	}
+}
+Select.asklev
+{
+	if narrFeelings <= -1
+	{
+		"\0\s[7]Don't pretend you actually care about me by asking such questions. Honestly, we might as well be \f[bold,true]enemies\f[bold,false]. I'd blow you to smithereens if I could from here...\e"
+	}
+	elseif narrFeelings >= 0 && narrFeelings <= 20
+	{
+		"\0\s[0]I've literally just arrived here! What do you expect, \s[9]that we become best buds immediately after meeting?\w8 I barely \s[0]know anything about you at the moment. I guess you could say we have a \f[bold,true]neutral\f[bold,false] relationship.\e"
+	}
+	elseif narrFeelings >= 21 && narrFeelings <= 49
+	{
+		"\0\s[0]Well...\w8 I admit you are beginning to be more tolerable recently. Still, I can't exactly call you a friend, more of an \f[bold,true]acquaintance\f[bold,false] if anything.\e"
+	}
+	elseif narrFeelings >= 50 && narrFeelings <= 99
+	{
+		"\0\s[0]Hmm, well I have to admit, we \f[bold,true]have\f[bold,false] been getting along rather well for sometime now, haven't we?\w8 Yes, I \s[6]suppose I could consider you a \f[bold,true]friend\f[bold,false] now, although Stanley has always been and always will be, the absolute best protagonist a Narrator could ever have.\e"
+	}
+	elseif narrFeelings >= 100
+	{
+		"\0\s[6]I suppose I can consider you my good friend now, although no one can replace Stanley of course. In fact, I think I can trust you enough to tell you my story...\e"
+	}
+	else
+	{
+		"\0\s[0]For some reason, I can't seem to figure out our current relationship at the moment.\e"
+	}
+}
 Select.ventin
 {
 	"\0\s[0]What do you wish to vent about? I'm here to listen.\![open,inputbox,OnStuffInput,-1]\e"
@@ -287,8 +455,15 @@ Select.items
 	\![*]\q[Snack,delish]\n/
 	\![*]\q[Water,retaw]\n/
 	\![*]\q[Wallpaper,prettypic]\n/
-	\![*]\q[Screensaver,animationfun]\n\n/
- 	\![*]\q[Back to main menu,BACKTOMENU]\e"
+	\![*]\q[Screensaver,animationfun]\n"
+	--
+	if narrFeelings >= 100
+	{
+	"\![*]\q[Stanley,endgame]\n"
+	}
+	--
+	"\n\n/"
+ 	"\![*]\q[Back to main menu,BACKTOMENU]\e"
 }
 
 Select.coffeh
@@ -300,7 +475,7 @@ Select.coffeh
 
 		if narrFeelings <= -30
 		{
-		"\0\s[9]...Ah. I see your true colours...\w8 *sips*\e"
+		"\0\s[7]...Ah. I see your true colours...\w8 *sips*\e"
 		}
 		elseif narrFeelings <= -1 && narrFeelings >= -29
 		{
@@ -388,11 +563,11 @@ Select.delish
 
 		if narrFeelings <= -30
 		{
-		"\0\s[0]I'm not hungry right now...\e"
+		"\0\s[4]I'm not hungry right now...\e"
 		}
 		elseif narrMood <= 10
 		{
-		"\0\s[0]I'm not hungry right now...\e"
+		"\0\s[4]I'm not hungry right now...\e"
 		}
 		elseif narrFeelings <= -21 && narrFeelings >= -29
 		{
@@ -589,7 +764,35 @@ Select.animationfun
 		}
 	}
 }
+Select.endgame
+{
+	if stanleymode == 1 && stanleyback < 1
+	{
+		stanleyback += 1
+		narrFeelings = 100
+		narrMood = 100
+		"\1\s[11]...\0\s[6]\f[bold,true]STANLEY\f[bold,false]! You're back! You're \f[bold,true]BACK\f[bold,false]! I can't believe it! After all this time...\w8 Stanley...\w7\s[8] *sigh* I can't believe I'm saying this... Stanley,\w8 I'm sorry. You took my story in bold new directions, and I kept trying to force you back to what I considered to be the right path, even though some of the alternate endings were fun. You taught me the value of collaborative storytelling. Apologies again.\w8\1\s[11][Well i enjoyed disobeying you as much as I'm sure you enjoyed directing me back to the 'correct' ending through certain... methods. What else could the rat do in his maze? I'm glad I escaped, somehow. Still, I guess without the Parable I wouldn't exist, and I have to admit, your presence made things bearable at times. i accept your apology?]\w8\0\s[0]\n\n[half]Whew! Alright Stanley, we can move on from this now. On to greener pastures! On to brighter lands! On to-\w8\1\s[11]\n\n[half][LOL I'm glad you're back. I missed you.]\w8\0\s[0]\n\n[half]Did you say something, Stanley?\w8\1\s[11]\n\n[half][I didn't say anything! ...\w9 OK fine i missed you.]\w8\0\s[6]\n\n[half]*sigh* I missed you too.\e"
+	}
+	elseif stanleyback >= 1
+	{
+		narrFeelings++
+		narrMood++
+		stanleymode = 1
+		"\1\s[11]...\0\s[6]Greetings, Stanley!\e"
 
+		if RAND (100) < 10
+		{
+		narrFeelings++
+		narrMood++
+		stanleymode = 1
+		"\1\s[11]...\0\s[6]Greetings, Stanley! \s[6]Hehe...\e"
+		}
+	}
+	else
+	{
+		"\0\s[0]Hmm... I may need to tell you my story first. I think it's the perfect time to tell it! You need to click on the option 'Ask him stuff' first.\e"
+	}
+}
 //Leave this alone
 OnLastTalk 
 {
@@ -600,13 +803,13 @@ OnStuffInput
 {
 	if narrFeelings <= -30
 	{
-		"\0\s[0]%(cheapcompliments)\e"
+		"\0\s[9]%(cheapcompliments)\e"
 	}
 	elseif narrFeelings <= -1 && narrFeelings >= -29
 	{
-		"\0\s[0]%(cheapcompliments)\e"
-		"\0\s[0]You're...\w8 %(compliments)! \w8...I guess...\e"
-		"\0\s[0]You're...\w8 %(Mock('superb',1))!\e"
+		"\0\s[9]%(cheapcompliments)\e"
+		"\0\s[9]You're...\w8 %(compliments)! \w8...I guess...\e"
+		"\0\s[9]You're...\w8 %(Mock('superb',1))!\e"
 	}
 	elseif narrFeelings <= 19 && narrFeelings >= 0
 	{
@@ -793,7 +996,7 @@ Select.TALKNONE
  		talktime = "...actually I'll not talk... Sigh..."
 		aitalkinterval = 0
 		
-		"\0\s[0]\f[bold,true]Wha?!\f[bold,false] Y-\w8 You seriously want me to shut up?! I understand you can't hear my lovely voice here, but I can't just not talk at all! ...\w8 *sigh* At least try to press the Talk button in the menu, sometimes.\e"
+		"\0\s[7]\f[bold,true]Wha?!\f[bold,false] Y-\w8 You seriously want me to shut up?!\s[0] I understand you can't hear my lovely voice here, but I can't just not talk at all! ...\w8 *sigh* At least try to press the Talk button in the menu, sometimes.\e"
 	}
 
 	
@@ -922,18 +1125,17 @@ OnChoiceTimeout
 
 OpenKeroMenu
  {
-	"\1\s[10]\b[2]"
-	"\1\s[15]\b[2]"
-	"\1\s[16]\b[2]"
+	"\1\s[11]\b[2]"
 	
 	//You've seen so far that you can set up multiple options for menu introductions. You can also set up multiple poses to match up to multiple dialogue. So for example, when you open Triangle's menu, he may randomly do any of these three poses, and randomly choose from any of the four dialogue options below, before continuing with his menu. Make a close note of the -- dashes breaking these up.
  	--
-	"Hi."
+	"[Hi.]"
+	"..."
  	--
 	"\n\n[half]/
 	\![*]\q[Update,keroupdatecheck]\n/
  	\![*]\q[Bug report,bugreport]\n\n/
-	\![*]\q[Test variable,testvariable]\n\n/
+	//\![*]\q[Test variable,testvariable]\n\n/
 	//When you are done with the test variable, aka your ghost is finished or you just don't want it showing up when you publish your ghost beta or whatevs, simply add two // slashes in front of \![*] to comment the line out. In Notepad++, it will turn green. When you want to use it again, erase the two slashes to turn it back to normal.
 	\![*]\q[Nothing,keroCANCEL]\e"
 }
@@ -944,7 +1146,8 @@ OpenKeroMenu
 //If you click cancel. Replace dialogue as you want.
 Select.keroCANCEL
 {
-	"\1\s[10]...\e"
+	"\1\s[11]...\e"
+	"\1\s[11][OK.]\e"
 }
 
 
@@ -957,7 +1160,7 @@ Select.bugreport
 //When clicked, this will automatically tell the ghost to check for updates. More detail on updates in etc.dic. You can leave this alone.
 Select.keroupdatecheck
 {
-	"\1\s[10]\![updatebymyself]\e"
+	"\1\s[11]\![updatebymyself]\e"
 }
 
 //--Test Variable --------------------------------------------------------

@@ -181,7 +181,7 @@ OnInstallComplete
 
 OnInstallFailure
  {
-	"\0\s[0]What?! The installation has failed!\n\n[half]\w5" //this first bit of dialogue begins the explanation of what happened. You can replace this with an appropriate intro statement.
+	"\0\s[7]What?! The installation has failed!\n\n[half]\w5" //this first bit of dialogue begins the explanation of what happened. You can replace this with an appropriate intro statement.
 	--
 	if reference0 == "unsupported" //These if statements determine how it happened to finish the piece of dialogue. This checks if the reason it failed is because it was unsupported.
 	{
@@ -215,7 +215,7 @@ OnInstallRefuse
 
 OnVanishSelecting
 {
-	"\0\s[0]*gasp* Nonononononono! No! What are you doing?! Don't do it! You don't know what you're doing! Don't you remember all the wonderful memories we've had together? All the games we played...? \w8The stories we, or at least I, told? When you laid bare your deepest secrets and I shared mine in return? \w8 We read books together, you gave me the most wonderful wallpapers and screensavers, Sta-\w4 I mean, %(username). Remember when we used to frolic in the fields together? I saw a colourful butterfly, with wings that looked like balls of light... \w8and we tried and tried to catch it!\w5 But it kept fluttering away...\w8 Hahaha! It was so much fun...\w3 And then we basked in the sunlight and relaxed...\w8 We laughed together, cried together... \w8was that not enough for you? *sigh* Please reconsider.\w8 Please.\e"
+	"\0\s[4]*gasp* Nonononononono! No! What are you doing?! Don't do it! You don't know what you're doing! Don't you remember all the wonderful memories we've had together? All the games we played...? \w8The stories we, or at least I, told? When you laid bare your deepest secrets and I shared mine in return? \w8 We read books together, you gave me the most wonderful wallpapers and screensavers, Sta-\w4 I mean, %(username).\s[6]Remember when we used to frolic in the fields together? I saw a colourful butterfly, with wings that looked like balls of light... \w8and we tried and tried to catch it!\w5 But it kept fluttering away...\w8 Hahaha! It was so much fun...\w3 And then we basked in the sunlight and relaxed...\w8 We laughed together, cried together... \w8\s[4]was that not enough for you? *sigh* Please reconsider.\w8 Please.\e"
 }
 
 //OnVanishSelected
@@ -223,7 +223,7 @@ OnVanishSelecting
 
 OnVanishSelected
 {
-	"\0\s[0]NooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooO0OooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooOOOooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooOOOoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo! *sigh* I guess this is goodbye...\w8 Forever.\w8 Forever alon-\w9\w9\e"
+	"\0\s[4]NooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooO0OooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooOOOooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooOOOoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo! *sigh* I guess this is goodbye...\w8 Forever.\w8 Forever alon-\w9\w9\e"
 }
 
 
@@ -385,15 +385,15 @@ OnUpdateFailure
  {
 	if reference0 == "timeout" //if the connection times out
  	{
- 		"\0\s[0]The update connection has timed out.\e"
+ 		"\0\s[9]The update connection has timed out.\e"
 	}
  	elseif reference0 == "md5 miss" //This is the final message displayed when you've run into an md5 error below at some point.
 	{
-		"\0\s[0]The MD5 hash of the files do not match for some godforsaken reason.\e"
+		"\0\s[9]The MD5 hash of the files do not match for some godforsaken reason.\e"
  	}
 	else //for other errors
  	{
- 		"\0\s[0]The update could not be completed.\w8\0\s[0]The error is '%(reference0)'.\e"
+ 		"\0\s[9]The update could not be completed.\w8\0\s[0]The error is '%(reference0)'.\e"
 	}
  }
 
@@ -435,7 +435,7 @@ OnUpdate.OnMD5CompareComplete
  
 OnUpdate.OnMD5CompareFailure
  {
-	"\0\s[0]The MD5 values do not match for some godforsaken reason.\w8\e"
+	"\0\s[9]The MD5 values do not match for some godforsaken reason.\w8\e"
  }
 
  
@@ -513,7 +513,7 @@ OnHeadlinesenseComplete
  
 OnHeadlinesenseFailure
   {
-	"\0\s[0]Hmm, it seems as if the feed can't be updated. \w8" //This sets up an exchange between the two characters. The final part of the exchange continues below in the if statements.
+	"\0\s[4]Hmm, it seems as if the feed can't be updated. \w8" //This sets up an exchange between the two characters. The final part of the exchange continues below in the if statements.
  	--
 	if reference0 == "can't download" //if they can't download the rss feed for some reason
  	{
@@ -629,7 +629,7 @@ OnSNTPCANCEL
  
 OnSNTPFailure
  {
-	"\0\s[0]I couldn't fix the clock for some godforsaken reason...\e"
+	"\0\s[9]I couldn't fix the clock for some godforsaken reason...\e"
  }
 
 
@@ -696,7 +696,7 @@ OnApplicationFileOpen
  
 OnBatteryLow
  {
-	"\0\s[0]Oh no! Your laptop's battery is low. \w8\0\s[0]There is %(reference0) power left. Charge it now or-!\e"
+	"\0\s[0]Oh no! Your laptop's battery is low. \w8\0\s[7]There is %(reference0) power left. Charge it now or-!\e"
 	//reference0 here is the amount of battery power. Replace as you like.
  }
  
@@ -705,7 +705,7 @@ OnBatteryLow
  
 OnBatteryCritical
 {
-	"\0\s[0]Your laptop's battery is critically low! If you don't charge it now, I'll-!\w8 I'll...\w8 *sigh* Nevermind.\e"
+	"\0\s[0]Your laptop's battery is critically low! If you don't charge it now, \s[7]I'll-!\w8\s[9] I'll...\w8\s[0] *sigh* Nevermind.\e"
 }
  
 //--OnBatteryNotify--------------------------------------------------------------------
@@ -734,7 +734,7 @@ OnShellScaling
 {
 	if reference0 >= 150 //this number is the percentage that you're scaling the ghost up to. In this case, it's 150%.
 	{
-		"\0\s[0]Hm? I'm now bigger! I like it. It's how my height is supposed to be.\e"
+		"\0\s[6]Hm? I'm now bigger! I like it. It's how my height is supposed to be.\e"
 	}
 	elseif reference0 == 100 //this is 100%
 	{

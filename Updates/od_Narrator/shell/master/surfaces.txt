@@ -56,7 +56,7 @@ surface9
 element1,overlay,surface1509.png,0,0
 }
 
-surface.append0-9
+surface.append0-6,8-9,!1-2
 {
 collision0,48,16,210,26,Head
 collision1,60,27,198,140,Face
@@ -66,6 +66,32 @@ collision3,36,152,45,161,Nottub
 animation0.interval,random,4
 animation0.pattern1,overlay,1101,0,0,0
 animation0.pattern2,overlay,1102,100,0,0
+animation0.pattern3,overlay,-1,50,0,0
+}
+
+surface1
+{
+collision0,48,16,210,26,Head
+collision1,60,27,198,140,Face
+collision2,24,151,35,162,Button
+collision3,36,152,45,161,Nottub
+
+animation0.interval,random,4
+animation0.pattern1,overlay,1301,0,0,0
+animation0.pattern2,overlay,1302,100,0,0
+animation0.pattern3,overlay,-1,50,0,0
+}
+
+surface2
+{
+collision0,48,16,210,26,Head
+collision1,60,27,198,140,Face
+collision2,24,151,35,162,Button
+collision3,36,152,45,161,Nottub
+
+animation0.interval,random,4
+animation0.pattern1,overlay,1201,0,0,0
+animation0.pattern2,overlay,1202,100,0,0
 animation0.pattern3,overlay,-1,50,0,0
 }
 
@@ -83,4 +109,99 @@ Head,Hm? A pat on the head, I suppose?
 Face,Hello, I'm The Narrator.
 Button,Hm? What do you think you're doing?
 Nottub,Don't you dare.
+}
+
+//Side Character Embarrassed pose
+surface11
+{
+element1,overlay,surface2501.png,0,0
+}
+
+//Side Character Surprised pose
+surface12
+{
+element1,overlay,surface2502.png,0,0
+}
+
+//Side Character Worried pose
+surface13
+{
+element1,overlay,surface2503.png,0,0
+}
+
+//Side Character Sad/Disappointed pose
+surface14
+{
+element1,overlay,surface2504.png,0,0
+}
+
+//Side Character Grinning pose
+surface15
+{
+element1,overlay,surface2505.png,0,0
+}
+
+//Side Character Superhappy pose
+surface16
+{
+element1,overlay,surface2506.png,0,0
+}
+
+//Side Character Angry pose
+surface17
+{
+element1,overlay,surface2507.png,0,0
+}
+
+//Side Character Thoughtful pose
+surface18
+{
+element1,overlay,surface2508.png,0,0
+}
+
+//Side Character Bored pose
+surface19
+{
+element1,overlay,surface2509.png,0,0
+}
+
+surface.append11-19
+{
+collision0,42,7,91,13,Head
+collision1,46,14,87,61,Face
+
+animation0.interval,random,4
+animation0.pattern1,overlay,2601,0,0,0
+animation0.pattern2,overlay,2602,100,0,0
+animation0.pattern3,overlay,-1,50,0,0
+
+animation1.interval,talk,4
+animation1.pattern0,alternativestart,[2.3.4]
+
+animation2.interval,never
+animation2.pattern0,overlay,2702,100,0,0
+animation2.pattern0,overlay,2701,130,0,0
+animation2.pattern1,overlay,-1,100,0,0
+
+animation3.interval,never
+animation3.pattern0,overlay,2701,140,0,0
+animation3.pattern1,overlay,-1,100,0,0
+
+animation4.interval,never
+animation4.pattern0,overlay,2702,140,0,0
+animation4.pattern1,overlay,-1,100,0,0
+}
+
+kero.tooltips
+{
+Head,[I like pats on my head.]
+Face,[Try not to touch my face, please...]
+}
+
+kero.cursor
+{
+mouseup0,Head,system:hand
+mousedown0,Head,system:finger
+mouseup1,Face,system:hand
+mousedown1,Face,system:grip
 }

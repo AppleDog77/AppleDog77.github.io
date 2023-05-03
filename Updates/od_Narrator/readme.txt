@@ -32,6 +32,7 @@ Ver 0.1 - First beta release. (Tue, Feb 14, 2023 ;))
 Ver 0.2 - Second beta release. (Wed, Mar 1, 2023)
 Ver 1.0 - First public release! Various bugs fixed (with some at least being temporarily worked around). Custom cursor, mouse wheel, a couple chains, and misc stuff added. (Thur, Mar 9, 2023)
 Ver 1.1 - Appended blinking to other surfaces, fixed some typos, and added some dialogue. (Mon, Apr 3, 2023)
+Ver 1.2 - Stanley returns! Added unlockable secondary character, who only likes pets on the head, not the face. Also added more emotions for the Narrator, some extra dialogue, and tweaked the relationship and mood stuff. (Wed, May 3, 2023)
 
 
 ...

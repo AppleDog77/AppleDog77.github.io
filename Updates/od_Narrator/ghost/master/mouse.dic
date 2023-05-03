@@ -65,6 +65,7 @@ MouseMoveSakura
 						"\0\s[6]Ah...\w8 Excellent. Truly, this is a work of art in the making.\e"
 						"\0\s[6]For hope! For freedom! For science! For love! Don't ever, ever stop!\e"
 						"\0\s[0]I'd be impressed if you pet or stroked me for...\w8 mm, let's say, 4 hours.\e"
+						narrMood++
 						}
 					elseif narrFeelings >= 20
 						{
@@ -81,7 +82,7 @@ MouseMoveSakura
 						{
 						"\0\s[0]Hmm... strange... I'm not sure I'm quite comfortable with that...\e"
 
-						"\0\s[0]It seems you don't know what the concept of 'personal space' is. \_a[https://www.merriam-webster.com/dictionary/personal%20space]Here's the definition of it.\_a If you don't have internet access, it simply means that I'm not quite comfortable with petting just yet.\e"
+						"\0\s[9]It seems you don't know what the concept of 'personal space' is. \_a[https://www.merriam-webster.com/dictionary/personal%20space]Here's the definition of it.\_a If you don't have internet access, it simply means that I'm not quite comfortable with petting just yet.\e"
 
 						"\0\s[0]Go away!\e"
 						narrMood--
@@ -90,7 +91,7 @@ MouseMoveSakura
 						{
 						"\0\s[9]Sorry, no 'pets' allowed.\e"
 						"\0\s[9]]I don't trust you. Sorry, no 'pets' allowed.\e"
-						"\0\s[0]Shoo, shoo!\e"
+						"\0\s[7]Shoo, shoo!\e"
 						narrMood--
 						}
 				}
@@ -110,6 +111,7 @@ MouseMoveSakura
 						"\0\s[0]Um... Are you going to stop? If you are, I'd rather you didn't.\e"
 						"\0\s[0]Um... Are you going to stop? If you are, I'd rather you didn't, please.\e"
 						"\0\s[0]*whirrs*\e"
+						narrMood++
 						}
 					elseif narrFeelings >= 20
 						{
@@ -124,7 +126,7 @@ MouseMoveSakura
 						{
 						"\0\s[0]Hmm... strange... I'm not sure I'm quite comfortable with that...\e"
 
-						"\0\s[0]It seems you don't know what the concept of 'personal space' is. \_a[https://www.merriam-webster.com/dictionary/personal%20space]Here's the definition of it.\_a If you don't have internet access, it simply means that I'm not quite comfortable with petting just yet.\e"
+						"\0\s[9]It seems you don't know what the concept of 'personal space' is. \_a[https://www.merriam-webster.com/dictionary/personal%20space]Here's the definition of it.\_a If you don't have internet access, it simply means that I'm not quite comfortable with petting just yet.\e"
 
 						"\0\s[0]Go away!\e"
 						narrMood--
@@ -133,7 +135,7 @@ MouseMoveSakura
 						{
 						"\0\s[9]Sorry, no 'pets' allowed.\e"
 						"\0\s[9]I don't trust you. Sorry, no 'pets' allowed.\e"
-						"\0\s[0]Shoo, shoo!\e"
+						"\0\s[7]Shoo, shoo!\e"
 						narrMood--
 						}
 				}
@@ -159,6 +161,7 @@ MouseMoveSakura
 						"\0\s[6]Ah...\w8 Excellent. Truly, this is a work of art in the making.\e"
 						"\0\s[6]For hope! For freedom! For science! For love! Don't ever, ever stop!\e"
 						"\0\s[0]I'd be impressed if you pet or stroked me for...\w8 mm, let's say, 4 hours.\e"
+						narrMood++
 						}
 					elseif narrFeelings >= 20
 						{
@@ -175,7 +178,7 @@ MouseMoveSakura
 						{
 						"\0\s[0]Hmm... strange... I'm not sure I'm quite comfortable with that...\e"
 
-						"\0\s[0]It seems you don't know what the concept of 'personal space' is. \_a[https://www.merriam-webster.com/dictionary/personal%20space]Here's the definition of it.\_a If you don't have internet access, it simply means that I'm not quite comfortable with petting just yet.\e"
+						"\0\s[9]It seems you don't know what the concept of 'personal space' is. \_a[https://www.merriam-webster.com/dictionary/personal%20space]Here's the definition of it.\_a If you don't have internet access, it simply means that I'm not quite comfortable with petting just yet.\e"
 
 						"\0\s[0]Go away, please! This is very uncomfortable...\e"
 						narrMood--
@@ -184,7 +187,7 @@ MouseMoveSakura
 						{
 						"\0\s[9]Sorry, no 'pets' allowed.\e"
 						"\0\s[9]I don't trust you. Sorry, no 'pets' allowed.\e"
-						"\0\s[0]Shoo, shoo!\e"
+						"\0\s[7]Shoo, shoo!\e"
 						narrMood--
 						}
 				}
@@ -202,6 +205,7 @@ MouseMoveSakura
 						"\0\s[0]Um... Are you going to stop? If you are, I'd rather you didn't.\e"
 						"\0\s[0]Um... Are you going to stop? If you are, I'd rather you didn't, please.\e"
 						"\0\s[0]*whirrs*\e"
+						narrMood++
 						}
 					elseif narrFeelings >= 10
 						{
@@ -216,7 +220,7 @@ MouseMoveSakura
 						{
 						"\0\s[0]Hmm... strange... I'm not sure I'm quite comfortable with that...\e"
 
-						"\0\s[0]It seems you don't know what the concept of 'personal space' is. \_a[https://www.merriam-webster.com/dictionary/personal%20space]Here's the definition of it.\_a If you don't have internet access, it simply means that I'm not quite comfortable with petting just yet.\e"
+						"\0\s[9]It seems you don't know what the concept of 'personal space' is. \_a[https://www.merriam-webster.com/dictionary/personal%20space]Here's the definition of it.\_a If you don't have internet access, it simply means that I'm not quite comfortable with petting just yet.\e"
 
 						"\0\s[0]Go away, please! This is very uncomfortable...\e"
 						narrMood--
@@ -225,7 +229,7 @@ MouseMoveSakura
 						{
 						"\0\s[9]Sorry, no 'pets' allowed.\e"
 						"\0\s[9]I don't trust you. Sorry, no 'pets' allowed.\e"
-						"\0\s[0]Shoo, shoo!\e"
+						"\0\s[7]Shoo, shoo!\e"
 						narrMood--
 						}
 				}
@@ -241,12 +245,14 @@ OnMouseLeaveAll //Activates when the mouse leaves all hitboxes. You can change t
     {
         pethighscore = continuousstroke
         "\C\n\nFor some reason, I feel like saying, new high score! %(pethighscore)!\e"
+        narrMood++
     }
     --
     if currentpetstreak > toppetstreak //Same thing here, but it's counting the number of actual pets you got. You can use this instead of the stroke count if you like.
     {
         toppetstreak = currentpetstreak
         //"\C\n\nFor some reason, I feel like saying, new high score! %(pethighscore)!\e"
+        //narrMood++
     }
     --
     stroke = 0
@@ -277,6 +283,7 @@ OnMouseWheel
 						"\0\s[6]Ah...\w8 Excellent. Truly, this is a work of art in the making.\e"
 						"\0\s[6]For hope! For freedom! For science! For love! Don't ever, ever stop!\e"
 						"\0\s[0]I'd be impressed if you pet or stroked me for...\w8 mm, let's say, 4 hours.\e"
+						narrMood++
 						}
 					elseif narrFeelings >= 20
 						{
@@ -293,16 +300,16 @@ OnMouseWheel
 						{
 						"\0\s[0]Hmm... strange... I'm not sure I'm quite comfortable with that...\e"
 
-						"\0\s[0]It seems you don't know what the concept of 'personal space' is. \_a[https://www.merriam-webster.com/dictionary/personal%20space]Here's the definition of it.\_a If you don't have internet access, it simply means that I'm not quite comfortable with petting just yet.\e"
+						"\0\s[9]It seems you don't know what the concept of 'personal space' is. \_a[https://www.merriam-webster.com/dictionary/personal%20space]Here's the definition of it.\_a If you don't have internet access, it simply means that I'm not quite comfortable with petting just yet.\e"
 
-						"\0\s[0]Go away!\e"
+						"\0\s[7]Go away!\e"
 						narrMood--
 						}
 						elseif narrFeelings <= 0
 						{
 						"\0\s[9]Sorry, no 'pets' allowed.\e"
 						"\0\s[9]I don't trust you. Sorry, no 'pets' allowed.\e"
-						"\0\s[0]Shoo, shoo!\e"
+						"\0\s[7]Shoo, shoo!\e"
 						narrMood--
 						}
 				}
@@ -322,6 +329,7 @@ OnMouseWheel
 						"\0\s[0]Um... Are you going to stop? If you are, I'd rather you didn't.\e"
 						"\0\s[0]Um... Are you going to stop? If you are, I'd rather you didn't, please.\e"
 						"\0\s[0]*whirrs*\e"
+						narrMood++
 						}
 					elseif narrFeelings >= 20
 						{
@@ -336,7 +344,7 @@ OnMouseWheel
 						{
 						"\0\s[0]Hmm... strange... I'm not sure I'm quite comfortable with that...\e"
 
-						"\0\s[0]It seems you don't know what the concept of 'personal space' is. \_a[https://www.merriam-webster.com/dictionary/personal%20space]Here's the definition of it.\_a If you don't have internet access, it simply means that I'm not quite comfortable with petting just yet.\e"
+						"\0\s[9]It seems you don't know what the concept of 'personal space' is. \_a[https://www.merriam-webster.com/dictionary/personal%20space]Here's the definition of it.\_a If you don't have internet access, it simply means that I'm not quite comfortable with petting just yet.\e"
 
 						"\0\s[0]Go away!\e"
 						narrMood--
@@ -345,7 +353,7 @@ OnMouseWheel
 						{
 						"\0\s[9]Sorry, no 'pets' allowed.\e"
 						"\0\s[9]I don't trust you. Sorry, no 'pets' allowed.\e"
-						"\0\s[0]Shoo, shoo!\e"
+						"\0\s[7]Shoo, shoo!\e"
 						narrMood--
 						}
 				}
@@ -371,6 +379,7 @@ OnMouseWheel
 						"\0\s[6]Ah...\w8 Excellent. Truly, this is a work of art in the making.\e"
 						"\0\s[6]For hope! For freedom! For science! For love! Don't ever, ever stop!\e"
 						"\0\s[0]I'd be impressed if you pet or stroked me for...\w8 mm, let's say, 4 hours.\e"
+						narrMood++
 						}
 					elseif narrFeelings >= 20
 						{
@@ -387,7 +396,7 @@ OnMouseWheel
 						{
 						"\0\s[0]Hmm... strange... I'm not sure I'm quite comfortable with that...\e"
 
-						"\0\s[0]It seems you don't know what the concept of 'personal space' is. \_a[https://www.merriam-webster.com/dictionary/personal%20space]Here's the definition of it.\_a If you don't have internet access, it simply means that I'm not quite comfortable with petting just yet.\e"
+						"\0\s[9]It seems you don't know what the concept of 'personal space' is. \_a[https://www.merriam-webster.com/dictionary/personal%20space]Here's the definition of it.\_a If you don't have internet access, it simply means that I'm not quite comfortable with petting just yet.\e"
 
 						"\0\s[0]Go away, please! This is very uncomfortable...\e"
 						narrMood--
@@ -396,7 +405,7 @@ OnMouseWheel
 						{
 						"\0\s[9]Sorry, no 'pets' allowed.\e"
 						"\0\s[9]I don't trust you. Sorry, no 'pets' allowed.\e"
-						"\0\s[0]Shoo, shoo!\e"
+						"\0\s[7]Shoo, shoo!\e"
 						narrMood--
 						}
 				}
@@ -414,6 +423,7 @@ OnMouseWheel
 						"\0\s[0]Um... Are you going to stop? If you are, I'd rather you didn't.\e"
 						"\0\s[0]Um... Are you going to stop? If you are, I'd rather you didn't, please.\e"
 						"\0\s[0]*whirrs*\e"
+						narrMood++
 						}
 					elseif narrFeelings >= 10
 						{
@@ -428,7 +438,7 @@ OnMouseWheel
 						{
 						"\0\s[0]Hmm... strange... I'm not sure I'm quite comfortable with that...\e"
 
-						"\0\s[0]It seems you don't know what the concept of 'personal space' is. \_a[https://www.merriam-webster.com/dictionary/personal%20space]Here's the definition of it.\_a If you don't have internet access, it simply means that I'm not quite comfortable with petting just yet.\e"
+						"\0\s[9]It seems you don't know what the concept of 'personal space' is. \_a[https://www.merriam-webster.com/dictionary/personal%20space]Here's the definition of it.\_a If you don't have internet access, it simply means that I'm not quite comfortable with petting just yet.\e"
 
 						"\0\s[0]Go away, please! This is very uncomfortable...\e"
 						narrMood--
@@ -437,7 +447,7 @@ OnMouseWheel
 						{
 						"\0\s[9]]Sorry, no 'pets' allowed.\e"
 						"\0\s[9]I don't trust you. Sorry, no 'pets' allowed.\e"
-						"\0\s[0]Shoo, shoo!\e"
+						"\0\s[7]Shoo, shoo!\e"
 						narrMood--
 						}
 				}
@@ -459,12 +469,14 @@ MouseMoveKero
 			stroke = 0
 			if reference4 == "Face" //Put in the name of your collision area you set up for your secondary character here.
  			{
-				"\1\s[10]...\e"
+				narrFeelings--
+				narrMood--
+				"\1\s[11]...\0\s[7]I don't think Stanley's too comfortable with that...\e"
 				//Replace this dialogue with your secondary character's dialogue.
  			}
 			elseif reference4 == "Head" //Like above, put in the name of another collision you set up in surfaces.txt for the secondary character. You can keep adding more elseifs like this for any extra collisions you may have set up.
 			{
-				"\1\s[10]...\e"
+				"\1\s[11]...\e"
 				//Replace this dialogue as appropriate.
 			}	
  		}
@@ -530,7 +542,7 @@ MouseDoubleClickSakura
 	{
 		"\0\s[0]Why are you pushing my buttons?\e"
 		"\0\s[0]Sta-\w8\s[9] %(username), stop pushing my buttons!\e"
-		"\0\s[0]I have an idea to cure your boredom; instead of pushing my buttons over and over, how about we play a game?\w8 %(username) double-clicked on The Narrator; then, %(nomPro) clicked on Do some stuff. This will be fun!\e"
+		"\0\s[0]I have an idea to cure your boredom; instead of pushing my buttons over and over, how about we play a game?\w8 %(username) double-clicked on The Narrator; then, %(nomPro) clicked on Do some stuff. \s[6]This will be fun!\e"
  	}
 	else
  	{
@@ -541,13 +553,31 @@ MouseDoubleClickSakura
 
 Select.whywhywhy
 {
-	"\0\s[0]Ouch! What do you think you're doing?!\e"
-	"\0\s[0]Don't you dare hit me again.\e"
-	"\0\s[9]Do you actually care about anyone or are you just using people for your own purposes?\e"
-	"\0\s[0]Thou %(insult1) %(insult2) %(insult3)!\e"
-	"\0\s[9]%(cheapcompliments)\e"
-	narrFeelings--
-	narrMood--
+	if narrFeelings >= 50
+	{
+		if stanleymode == 1
+		{
+		narrFeelings = 0
+		narrMood = 21
+		"\0\s[7]...\w8 It's been a long con the entire time, hasn't it. You carefully and slowly earn my trust, and then you take it all away just because...\w8 For fun? To see what happens? Because you're a cruel person at heart?\w8 Oh... it doesn't matter. At least if a real person were to visit my Parable and ruin it, I could work hard to reset it. But here? There's no such luxury. *sigh* Come along Stanley, let's head back to the Parable. Permanently. Forever.\w8\w8\![vanishbymyself]"
+		}
+		else
+		{
+		narrFeelings = 0
+		narrMood = 0
+		"\0\s[7]...\w8 It's been a long con the entire time, hasn't it. You carefully and slowly earn my trust, and then you take it all away just because...\w8 For fun? To see what happens? Because you're a cruel person at heart?\w8 Oh... it doesn't matter. At least if a real person were to visit my Parable and ruin it, I could work hard to reset it. But here? There's no such luxury. *sigh* Please just uninstall me from here. Then at least I can get back to my Parable and forget about all this.\e"
+		}
+	}
+	else
+	{
+		narrFeelings--
+		narrMood--
+		"\0\s[7]Ouch! What do you think you're doing?!\e"
+		"\0\s[7]Don't you dare hit me again.\e"
+		"\0\s[7]Do you actually care about anyone or are you just using people for your own purposes?\e"
+		"\0\s[9]Thou %(insult1) %(insult2) %(insult3)!\e"
+		"\0\s[9]%(cheapcompliments)\e"
+	}
 }
 
 Select.phew
@@ -563,7 +593,9 @@ MouseDoubleClickKero
  {
  	if reference4 == "Head" || reference4 == "Face"
 	{
-		"\1\s[10]Ow!\e"
+		{
+		"\0\s[0]I'm going to assume you just misclicked, but just in case... Confirm Action?\n\n\![*]\q[Yes,stannyno]\n\![*]\q[NO!,whew]\e"
+		}
 		//Replace the dialogue here for the second character with whatever you want. What I said above about adding or trimming still holds here.
  	}
 	else //Otherwise if you click anywhere else on Triangle's body
@@ -571,7 +603,29 @@ MouseDoubleClickKero
 		OpenKeroMenu //This will open his menu set up in menu.dic.
 	}
  }
+		
+Select.stannyno
+{
+	if narrFeelings >= 50
+	{
+		{
+		narrFeelings = 0
+		narrMood = 0
+		"\0\s[7]...\w8 It's been a long con the entire time, hasn't it. You carefully and slowly earn my trust, and then you take it all away just because...\w8 For fun? To see what happens? Because you're a cruel person at heart?\w8 Oh... it doesn't matter. At least if a real person were to visit my Parable and ruin it, I could work hard to reset it. But here? There's no such luxury. *sigh* Come along Stanley, let's head back to the Parable. Permanently. Forever.\w8\w8\![vanishbymyself]"
+		}
+	}
+	else
+	{
+		narrFeelings--
+		narrMood--
+		"\1\s[11]Ow!\0\s[7]STOP\e"
+	}
+}
 
+Select.whew
+{
+	"\0\s[0]\1\s[11]\e"
+}
  //*********************Advanced User Info*******************************
  //There are other mouse related functions you could set up much like the above, such as OnMouseDragStart, OnMouseDragEnd, OnMouseWheel, and others which correspond to various things you can do with your mouse. You can probably guess what those functions do just by their names - OnMouseWheel would be if someone spun their mouse wheel over a certain area, for example. If you're interested in these, I'd recommend doing some reading at the CROW-SSP Encyclopedia to get a better idea of them and settle down for some trial and error learning as you try to put them in.
  //***********************************************************************

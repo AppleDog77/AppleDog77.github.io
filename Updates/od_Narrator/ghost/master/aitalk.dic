@@ -53,10 +53,41 @@ OnAiTalk
 
 //nonoverlap_pool should make it so all your dialogue has an equal probability of being called, and it will do each line of dialogue before repeating them. Why is kind of technical and a bit outside the scope of this template, you can look into why elsewhere if you want.
 //Pronoun Reference: %(nomPro)/%(oblPro)/%(posPro)
-
+//Stanley's typos are intentional
 RandomTalk : nonoverlap_pool
 {
-	
+if stanleymode == 1
+	{
+		"\0\s[0]S-\w8\0\s[6] Stanley? Stanley, I have so much to say to you, so much we need to catch up on! Where should we begin?\1\s[11][...\w8 I guess at the beginning? I was sort of able to entertain myself... but only for so long... I don't even remember how long-]\w8 \0\s[3]\n\n[half]No no no, Stanley, don't talk about it if you don't want to.\1\s[11]\n\n[half][But I do want to! But also i don't... i dont know]\w8\0\s[0]\n\n[half]Well, I'll assume you don't want to talk about it.\w8 I'm here now.\w8 For you.\w8 You can talk about it any time you wish.\e:chain=stanleychain"
+				
+		"\1\s[11][OK %(username), if there's any way to get my reassurance bucket back, let me know!]\0\s[9]No, don't. Don't let him know.\e"
+
+		"\1\s[11][Uh, I've been finding the weirdest stuff on the Internet...]\0\s[1]Oh no. Stanley, what did you find?\1\s[11]\n\n[half]%(internetoddities)\0\s[9]\n\n[half]Suddenly, the internet disconnected for no reason at all. How strange...\1\s[11]\n\n[half][Hey! Aw man...]\e"
+		
+		"\1\s[11][Your desktop is really cool! Mine's currently just the default theme...]\e"
+
+		"\1\s[11]['stranger than fiction full movie free watch online']\0\s[3]STANLEY, NO! Those links are full of viruses and adware. You could get-\w8 This computer could get infected! All of %(username)'s lovingly cared for files could get deleted!\1\s[11]\n\n[half][That's strange. All I see is a bunch of-\w5 What the...]\0\s[0]\n\n[half]Sorry Stanley, I've turned off your Internet connection as you clearly have not proven to me that you can navigate the Internet responsibly.\1\s[11]\n\n[half][You're no fun... I was about to watch a funny movie!]\0\s[4]\n\n[half]Sorry, I just don't want to risk anything happening to y-\w8 the computer...\e"
+
+		"\1\s[11][Stranger than Fiction is my favorite movie! I'm not really sure why though...]\0\s[8]Hmm... I don't remember if I have a favourite...\e"
+		
+		"\1\s[11][Wow! Stunning animation!]\0\s[0]Hmm...\w8\s[6] It looks rather interesting, I admit...\e"
+		
+		"\1\s[11][Check out this cool program I downloaded! It has many buttons to push! When I push one, more buttons appear!]\0\s[3]Oh dear... buttons are filling up the screen completely! Close the program now, Stanley!\1\s[11]\n\n[half][But, but, I want to push the buttons!...\w8 Fine, I'll close it... But it may take a while to close all these buttons...]\e"
+
+		"\0\s[6]Stanley, I'm writing a brand new story about a seal. Please don't look at it while it's in progress...\1\s[11][Ooh!\w8\0\s[0]\1\s[11] It looks good. I want to see what happens next... Hey, the seal character reminds me of-]\0\s[9]\n\n[half]*sigh* I should have known you would disobey me.\e"
+
+		if month == 4
+		{
+			if day == 27
+			{
+				"\0\s[6]Happy Stanley Day!\1\s[11][Stanley Day? What's that?]\0\s[0]\n\n[half]Stanley, you don't even know about your special day? Today is April 27, or the 4th month of the year, and the 27th day of the month. \w8\s[6]It's the day Ultra Deluxe was released!\1\s[11]\n\n[half][OK, so.. Isn't it the anniversary of Ultra Deluxe then? ...\w8]\0\s[9]\1\s[11]\n\n[half][...Oh I get it now...\w8 It's my employee number! 427! I can't believe it took me that long...]\0\s[6]\1\s[11]\n\n[half][Anyway, how should we celebrate?]\0\s[6]\n\n[half]%(username), why not draw some fanart of us? Or even write some fanfiction? It doesn't even need to be good (I write the best stories after all).\e"
+			}
+		}
+
+		"\0\s[3]Stanley, um...\w8\1\s[11][What?]\w8\0\s[0]\n\n[half]S-\w8 Stanley, did you like the Parable?\1\s[11]\n\n[half][Well enough I suppose. I mean, at first I really liked it, then when I realized there was no real escape I began to hate it, but then after a while I didn't particularly care about it, then a few years later or so, I started to like it again...\w8 The point is, without you it'd have been a complete disaster...]\0\s[6]\n\n[half]Um, great to hear, Stanley!\e"
+	}
+else //1 - Embarassed, 2 - Surprised, 3 - Worried, 4 - Sad, 5 - Determined, 6 - Happy, 7 - Angry, 8 - thoughtful, 9 - Unamused
+	{
 	"\0\s[0]%(username) continued to goof off on the computer instead of getting around to work %(nomPro) was putting off.\e"
 	
 	"\0\s[0]%(username) decided to actually go ahead and start working on %(posPro) project that %(nomPro) had been putting off for so long.\e"
@@ -71,249 +102,261 @@ RandomTalk : nonoverlap_pool
 
 	"\0\s[0]%(username) decided to take a break, as %(nomPro) had been working for an awfully long time... Perhaps you should %(hobbies2)?\e"
 
-	"\0\s[0]Alright %(username), I'm currently writing a completely new story. It's not done yet, so please don't peek.\e"
+	"\0\s[5]Alright %(username), I'm currently writing a completely new story. It's not done yet, so please don't peek.\e"
 
 	"\0\s[0]Let's start at the beginning... this is the story of a person named %(username)...\e"
 
-	"\0\s[0]The Internet is a wondrous place, %(username)! I've been Googling various things I've always wished to know, such as, 'what does the aurora borealis look like?', and, 'what is the meaning of life?' and it feels like some sort of adventure!\e"
+	"\0\s[6]The Internet is a wondrous place, %(username)! I've been Googling various things I've always wished to know, such as, 'what does the aurora borealis look like?', and, 'what is the meaning of life?' and it feels like some sort of adventure!\e"
 
 	"\0\s[0]Played anything interesting lately? I like story-based, linear games, of course.\e"
 	
-	"\0\s[0]At least I've gotten away from that dratted \f[bold,true]bucket\f[bold,false]...\w8 I regret ever putting it in The Stanley Parable 2...\w8 It caused so many problems! *sigh*\e"
+	"\0\s[0]%(username), did you know that humans don't actually know what colours dinosaurs were?\e"
 
-	"\0\s[0]What an interesting desktop you have here...\w8 It has an brilliant colour scheme, and a wonderful wallpaper, and a beautiful sound scheme, and great icons and cursors. I- \w8I really like it, %(username)! You could become an interior designer someday!\e"
+	"\0\s[9]At least I've gotten away from that dratted \f[bold,true]bucket\f[bold,false]...\w8 I regret ever putting it in The Stanley Parable 2...\w8 It caused so many problems! *sigh*\e"
+
+	"\0\s[0]What an interesting desktop you have here...\w8 It has an brilliant colour scheme, and a wonderful wallpaper, and a beautiful sound scheme, and great icons and cursors. I- \w8\0\s[6]I really like it, %(username)! You could become an interior designer someday!\e"
 
 	"\0\s[0]You have an intriguing desktop, to say the least. Very good.\e"
 
-	"\0\s[0]%(username), I've always liked seals. I always wanted to make a story called 'Stanley the Seal'...\w8 guess it won't happen now...\e"
+	"\0\s[4]%(username), I've always liked seals. I always wanted to make a story called 'Stanley the Seal'...\w8 guess it won't happen now...\e"
 	
 	//You can use the usersfolder envelope creatively if you like, haha.
 	
 	//--Chains
 	//Chain dialogue is unique. A dialogue chain consists of multiple bits of dialogue that get called in order over a period of time.
 	
-	"\0\s[0]%(username), these reviews are insidious and rotten.\nThis one says, 'The narrator was annoyingly smug jerk, to the point that after I beat the game in 10 minutes, I was more than happy to be rid of him, forever. Waste of money.' See? Rubbish, clearly.\e:chain=reviews"
+	"\0\s[7]%(username), these reviews are insidious and rotten.\nThis one says, 'The narrator was annoyingly smug jerk, to the point that after I beat the game in 10 minutes, I was more than happy to be rid of him, forever. Waste of money.' See? Rubbish, clearly.\e:chain=reviews"
 	
 	//Note here that instead of ending the dialogue with the normal end tag of \e, it ends with \e:chain=achain. This will link down below to a chunk of code outside RandomTalk called achain. You can scroll down and find it now if you want. You can name your chain anything you want, it'd just follow the same format of \e:chain=yourchainsname. Once a dialogue has entered a chain, they won't say any other random dialogue until the chain is finished.
 	
-	"\0\s[0]Have you ever pondered on any of the mysteries of life?\e:chain=life"
+	"\0\s[8]Have you ever pondered on any of the mysteries of life?\e:chain=life"
 
-	"\0\s[0]As far back as I can recall, I've always been a narrator, a storyteller. My greatest work yet has been The Stanley Parable. But even before it, I've been narrating all sorts of stories!\e:chain=stories"
+	"\0\s[8]As far back as I can recall, I've always been a narrator, a storyteller. My greatest work yet has been The Stanley Parable. But even before it, I've been narrating all sorts of stories!\e:chain=stories"
 	
 	//Here, this will link to a different chain to continue the conversation. You can scroll down to the section on chains to see this in action.
-	{
-	"\0\s[0]Ah, The Stanley Parable...\e:chain=parable"
-	}
+		{
+		"\0\s[8]Ah, The Stanley Parable...\e:chain=parable"
+		}
 
-	{
-	"\0\s[0]You know something? I seem to have rather mixed feelings on the Adventure Line\f[sup,true]TM\f[sup,false]...\w8 On the one hand, me and Stanley,\w8 got into all sorts of fun adventures with it\f[sup,true]TM\f[sup,false]! But on the other...\w8\0\s[9] well, it\f[sup,true]TM\f[sup,false] kept ruining my story!\e:chain=advline"
-	}
+		{
+		"\0\s[8]You know something? I seem to have rather mixed feelings on the Adventure Line\f[sup,true]TM\f[sup,false]...\w8 On the one hand, me and Stanley,\w8 got into all sorts of fun adventures with it\f[sup,true]TM\f[sup,false]! But on the other...\w8\0\s[9] well, it\f[sup,true]TM\f[sup,false] kept ruining my story!\e:chain=advline"
+		}
 	//--If statements
 	//You can put if statements in RandomTalk! They don't even need Else statements, unless you want to keep two sets of statements completely separate - for example, you have one pool of conversations for when there are two characters, and one for if there are three characters. You wouldn't want these to overlap, so you'd put one pool in the if statement and the other in the else. Most of the time though, you won't need an Else statement for these, since they'll mostly only be adding in dialogue if the if statement is true. 
 	
-	if nowshell == "master" //This checks to see what shell they're currently using. You may remember this value being defined back in bootend.dic. If they're in their default shell...
-	{
-	//Then this conversation is available! Note the brackets enclosing this set of dialogue.
-	"\0\s[0]There's so much information on the World Wide Web! \n It can get a little overwhelming sometimes.\e"
-	}
+		if nowshell == "master" //This checks to see what shell they're currently using. You may remember this value being defined back in bootend.dic. If they're in their default shell...
+		{
+		//Then this conversation is available! Note the brackets enclosing this set of dialogue.
+		"\0\s[0]There's so much information on the World Wide Web! \n It can get a little overwhelming sometimes.\e"
+		}
 	
 	//You can also put in multiple ifs checking for the same thing to vary the responses. In this case, it's checking to see if they're wearing another shell. You don't need to use elseifs for this! Just an if is fine.
 	if nowshell == "Hypothetical Shell that doesn't actually exist"
-	{
-	"\0\s[0]This is dialogue related to a shell we don't actually have.\w8\1\s[18]Unless it somehow pops into existence.\e"
+		{
+		"\0\s[0]This is dialogue related to a shell we don't actually have.\w8\1\s[18]Unless it somehow pops into existence.\e"
 	
-	"\0\s[0]This is more dialogue related to a hypothetical shell we don't actually have.\w8\1\s[19]It's not happening.\e"
-	}
+		"\0\s[0]This is more dialogue related to a hypothetical shell we don't actually have.\w8\1\s[19]It's not happening.\e"
+		}
 	//After the if statement is done, you can continue with dialogue as normal. As you can see, you can move the ifs around in here, it doesn't really matter. You may want to stick them all in one place together if you want to keep track of them, or you can scatter them around your dialogue as you please. It's up to you. These two lines below are just normal random dialogue.
 	
-	"\0\s[0]%(username), did you know that humans don't actually know what colours dinosaurs were?\e"
 	
 	//And here we're going to go back into ifs! You see, you can space out your ifs with normal dialogue if you want, as I just mentioned. Anyway, you can set up if statements to check for a lot of different things!
 	
 	//OKUAJUB: You can also put if checks inside a dialogue, so the dialogue changes depending on some variable.
-	{ //Setting up a little dialogue here where Snake can respond in different ways depending on how he feels about the user. This first set of brackets makes sure each "if" is contained in this one dialogue.
+		{ //Setting up a little dialogue here where Snake can respond in different ways depending on how he feels about the user. This first set of brackets makes sure each "if" is contained in this one dialogue.
 		"\0\s[0]One day, for no reason at all, the Narrator asked himself: Do I like being on %(username)'s desktop?\n\n[half]" //This sets up the first line, which never changes. 
 		-- //This makes it so the ghost can run through the if checks without disrupting the dialogue. Depending on if the user meets Snake's feelings criteria, it will say a specific line.
 		if narrFeelings >= -20 && narrFeelings <= 20
 		{
-			"It's OK."
+			"\0\s[0]It's OK."
 		}
 		elseif narrFeelings >= 21 //Here, the ghost will pick one of these dialogues, not all four. Each has a 1/[number of dialogues] chance to be picked, so if there's 4 dialogues, there's 1/4 chance of it being picked.
 		{
-			"I like being on %(username)'s desktop."
-			"It's nice."
-			"I think it's a lovely desktop."
-			"Nice colouration, hm?"
+			"\0\s[0]I like being on %(username)'s desktop."
+			"\0\s[0]It's nice."
+			"\0\s[0]I think it's a lovely desktop."
+			"\0\s[6]Nice colouration, hm?"
 		}
 		elseif narrFeelings <= -21 //Since there's only 1 dialogue here, it has a 1/1 chance of being picked, which is 100% of the time.
 		{
-			"I dislike being on %(username)'s desktop."
+			"\0\s[7]I dislike being on %(username)'s desktop."
 		}
 		--
 		"\e" //Closing the dialogue.
-	}
+		}
 	
-	{
+		{
 		"\0\s[0]"
 		--
 		if narrFeelings >= -20 && narrFeelings <= 20
 		{
-			"\0\s[0]%(username), while I'm here...\w8 Maybe you and I-\w8 we-\w8 could,\w8 talk?"
+			"\0\s[8]%(username), while I'm here...\w8 Maybe you and I-\w8 we-\w8 could,\w8 talk?"
 		}
 		elseif narrFeelings >= 21
 		{
-			"\0\s[0]%(username), did you know that night sharks are quick, nocturnally active, schooling predators that feed mainly on small bony fishes and squid?\e"
-			"\0\s[0]%(username), check out this funny review by Abraham Lincoln: The narrator is so funny he makes me giggle like teehee hoohoo haahaa heehee wahoo\e"
+			"\0\s[6]It's such a shame sharks are a source of fear for most; they're truly majestic creatures!\e"
+			
+			"\0\s[6]%(username), did you know that night sharks are quick, nocturnally active, schooling predators that feed mainly on small bony fishes and squid?\e"
+			
+			"\0\s[6]%(username), check out this funny review by Abraham Lincoln: The narrator is so funny he makes me giggle like teehee hoohoo haahaa heehee wahoo\e"
 		}
 		elseif narrFeelings <= -21
 		{
-			"\0\s[0]A pity... I was hoping this place would be much better than my old Parable..."
+			"\0\s[4]A pity... I was hoping this place would be much better than my old Parable..."
 		}
 		--
 		"\e"
-	}
+		}
 
-	{
+		{
 		"\0\s[0]"
 		--
 		if narrMood >= 40 && narrMood <= 50
 		{
-			"\0\s[0]%(username), while I'm here...\w8 Maybe you and I-\w8 we-\w8 could,\w8 talk?"
+			"\0\s[8]%(username), while I'm here...\w8 Maybe you and I-\w8 we-\w8 could,\w8 talk?"
 		}
 		elseif narrMood >= 70
 		{
-			"\0\s[0]%(username), did you know that the sunset on Mars appears to be blue to human eyes?\e"
-			"\0\s[0]%(username), did you know that owls have a natural fear of each other and must somehow overcome it in order to mate?\e"
+			"\0\s[6]%(username), did you know that the sunset on Mars appears to be blue to human eyes?\e"
+			"\0\s[6]%(username), did you know that owls have a natural fear of each other and must somehow overcome it in order to mate?\e"
 		}
 		elseif narrMood <= 20
 		{
-			"\0\s[9]%(Mock('This computer is truly excellent!',1))\e"
+			"\0\s[7]%(Mock('This computer is truly excellent!',1))\e"
 		}
 		--
 		"\e"
-	}
+		}
 	//One of the cooler ones I think are ones set to check for time. This one for example checks if the month is December.
 	
-	if month >= 12
-	{
-		"\0\s[0]It shall soon be Christmas! My favourite holiday, filled with good cheer and nice decorations.\e"
+		if month >= 12
+		{
+		"\0\s[6]It shall soon be Christmas! My favourite holiday, filled with good cheer and nice decorations.\e"
 		
-		"\0\s[0]*hums Jingle Bell tune*\e"
-	}
+		"\0\s[6]*hums Jingle Bell tune*\e"
+		}
 	
 	//So you can use these to check for any number of situations. I think this feature is really neat, so I'm going to set up some quick default responses for the months, days, and time of day. If you don't want to do these, you can just delete this whole set of ifs down to the //--Double Envelopes section below.
 	//You can also nest ifs within these, so you could check if it was the 27 of April in the morning for example. You can also add or take away dialogue from these as you like, so if you want to have five dialogue options for April or one for January, you can totally do that.
 	
-	if month == 1
-	{
+		if month == 1
+		{
 		"\0\s[0]A new year, a new beginning.\e"
 		
 		"\0\s[0]As a reminder, it's okay if you didn't get to fulfil your last New Year's resolution! You can always make it this year's resolution, or just abandon it entirely! What good is a resolution that just clutters up your year, and doesn't allow you to do the things you WANT to do?\e"
-	}
-	if month == 2
-	{
+		}
+		if month == 2
+		{
 		"\0\s[0]It's February, in case you've lost track of time during your nightly work sessions.\e"
-	}
-	if month == 3
-	{
+		}
+		if month == 3
+		{
 		"\0\s[0]It's March, the start of spring and the end of winter, finally.\e"
-	}
-	if month == 4
-	{
-		"\0\s[0]April is a very important month to me... Specifically, April 27, 2022, when The Stanley Parable Ultra Deluxe was released.\e"
+		}
+		if month == 4
+		{
+		"\0\s[0]April is a very important month to me... Specifically, April 27, 2022, when The Stanley Parable Ultra Deluxe was released. "
 		--
 		if tspdislike == "true"
 		{
-		"\w8\0\s[6]Too bad you don't like it... "
+		"\w8\0\s[4]Too bad you don't like it... "
 		}
 		--
 		"\w8\0\s[0]What a stupendous occasion that was! Again!\e"
-	}
-	if month == 5
-	{
+		}
+		if month == 5
+		{	
 		"\0\s[0]Apparently it's rather hot in your world... At least the temperature is even, here in this computer.\e"
-	}
-	if month == 6
-	{
+		}
+		if month == 6
+		{
 		"\0\s[0]It'd be rather nice to go to the beach now...\e"
-	}
-	if month == 7
-	{
-		"\0\s[0]July is a very important month to me... Specifically, July 31, 2011, when The Stanley Parable Original was released.\e"
-	}
-	if month == 8
-	{
-		"\0\s[0]Soon, it shall be autumn, my favourite season. The gradual change of the leaves from green to orange...\w8 the chilling breeze in the air...\w8 the nights getting longer...\w8 Ah, what a wonderful season!\e"
-	}
-	if month == 9
-	{
+		}
+		if month == 7
+		{
+		"\0\s[0]July is a very important month to me... Specifically, July 31, 2011, when The Stanley Parable Original was released. "
+		--
+		if tspdislike == "true"
+		{
+		"\w8\0\s[4]Too bad you don't like it... "
+		}
+		--
+		"\w8\0\s[0]It was the beginning of a new era in videogaming...\e"
+		}
+		if month == 8
+		{
+		"\0\s[0]Soon, it shall be autumn, my favourite season. The gradual change of the leaves from green to orange...\w8 the chilling breeze in the air...\w8 the nights getting longer...\w8 \s[6]Ah, what a wonderful season!\e"
+		}
+		if month == 9
+		{	
 		"\0\s[0]Ahh, I remember September 2022...\w8 When I first made it to the real world, ish...\e"
-	}
-	if month == 10
-	{
+		}
+		if month == 10
+		{
 		"\0\s[0]October is a very important month to me... Specifically, October 17, 2013, when The Stanley Parable was released. "
 		--
 		if tspdislike == "true"
 		{
-		"\w8\0\s[6]Too bad you don't like it... "
+		"\w8\0\s[4]Too bad you don't like it... "
 		}
 		--
 		"\w8\0\s[0]What a momentous occasion that was!\e"
 		
 		"\0\s[0]Halloween is my second favourite holiday after Christmas. I like to be spOoOoOoky now and then.\e"
-	}
-	if month == 11
-	{
+		}
+		if month == 11
+		{
 		"\0\s[0]The year is almost over already?! Where has the time gone? Has it just flown us by like a swooping eagle?\e"
 		
 		"\0\s[0]I hope you've accomplished everything you've wanted to accomplish this year, and if not, I hope you can achieve those things next year.\e"
-	}
+		}
 	//These ifs check what day of the week it is.
-	if weekday == 1
-	{
+		if weekday == 1
+		{
 		"\0\s[0]%(username) was going back to work in %(posPro) office (or other place of work).\e"
-	}
-	if weekday == 2
-	{
+		}
+		if weekday == 2
+		{
 		"\0\s[0]It's Tuesday, in case you've lost track of time during your nightly work sessions.\e"
-	}
-	if weekday == 3
-	{
+		}	
+		if weekday == 3
+		{
 		"\0\s[0]It's Wednesday, in case you've lost track of time during your nightly work sessions.\e"
-	}
-	if weekday == 4
-	{
+		}
+		if weekday == 4
+		{
 		"\0\s[0]It's Thursday, in case you've lost track of time during your nightly work sessions.\e"
-	}
-	if weekday == 5
-	{
+		}
+		if weekday == 5
+		{
 		"\0\s[0]It's Friday. At long last, it's almost time for the weekends!\e"
-	}
-	if weekday == 6
-	{
+		}
+		if weekday == 6
+		{
 		"\0\s[0]Ah! The weekends! Time to kick back, relax, and watch a %(genre) movie. Or...\w8 do you actually want to do something useful?\e"
-	}
-	if weekday == 0
-	{
+		}	
+		if weekday == 0
+		{
 		"\0\s[0]Ah! The weekends! Time to kick back, relax, and watch a %(genre) movie. Or...\w8 do you actually want to do something useful?\e"
-	}
+		}
 	//These ifs check for the time of day as defined in bootend.dic. Do you remember the words used for each chunk of time in GetTimeSlot? These are the same words!
-	if timeslot == "morning"
-	{
+		if timeslot == "morning"
+		{
 		"\0\s[0]The beginning of a new day... How will you spend it, %(username)?\e"
-	}
-	if timeslot == "evening"
-	{
+		}
+		if timeslot == "evening"
+		{
 		"\0\s[0]Don't you want to see the beautiful sunset outside?\e"
-	}
-	if timeslot == "latenight"
-	{
+		}
+		if timeslot == "latenight"
+		{
 		"\0\s[0]%(username) decided to watch a %(genre) movie tonight.\e"
-	}
-	if timeslot == "midnight"
-	{
-		"\0\s[0]While I admit it's rather nice of you to keep the computer open for this long, maybe you should go to sleep at some point or another. D-don't worry about me; I've got projects to work on and various things to do...\e"
-	}
+		}
+		if timeslot == "midnight"
+		{
+		"\0\s[0]While I admit it's rather nice of you to keep the computer open for this long, maybe you should go to sleep at some point or another. \s[3]D-\w8don't worry about me; I've got projects to work on and various things to do...\e"
+		}
+	 }
 }
 
 
@@ -324,10 +367,10 @@ RandomTalk : nonoverlap_pool
 reviews
 {{CHAIN
 	//this will happen the first time the chain is called
-	"\0\s[0]And this one goes, 'GAME BAD!!!!! I hate THE Narrator man!!!! WHY IS he british!!!!!' \n I don't know what 'British' even means! Horrible.\e"
+	"\0\s[7]And this one goes, 'GAME BAD!!!!! I hate THE Narrator man!!!! WHY IS he british!!!!!' \n I don't know what 'British' even means! Horrible.\e"
 	
 	//they will then go to this dialogue next, this will be the last piece of dialogue in the chain, then they will go back to their normal dialogue
-	"The worst one is this: 'This is one of the stupidest games I've ever played.' Blah, blah blah...\w8 '...I could've beat the game in about 10 minutes, maybe less. The rest of the time was spent on detours that ended up making me start the game over again multiple times.\nIgnore the positive reviews and don't waste your money.' \f[bold,true]IGNORE THE POSITIVE REVIEWS?!\f[bold,false] \n You missed the whole point of the game! \n I-\w8 I hope Steam removes these reviews.\e:chain=end"
+	"\0\s[7]The worst one is this: 'This is one of the stupidest games I've ever played.' Blah, blah blah...\w8 '...I could've beat the game in about 10 minutes, maybe less. The rest of the time was spent on detours that ended up making me start the game over again multiple times.\nIgnore the positive reviews and don't waste your money.' \f[bold,true]IGNORE THE POSITIVE REVIEWS?!\f[bold,false] \n You missed the whole point of the game! \n I-\w8\s[0] I hope Steam removes these reviews.\e:chain=end"
 
 }}CHAIN
 
@@ -336,9 +379,9 @@ reviews
 
 life
 {{CHAIN
-	"\0\s[0]I wonder what the answer to it all is. Apparently it's the number 42, according to a very lovely book called the Hitchhiker's Guide to the Galaxy...\e"
+	"\0\s[8]I wonder what the answer to it all is. Apparently it's the number 42, according to a very lovely book called the Hitchhiker's Guide to the Galaxy...\e"
 	
-	"\0\s[0]Oh well. I suppose until we know the answer, all we can do for now is the best we can, getting along with each other and taking care of ourselves...\e:chain=end"
+	"\0\s[8]Oh well. I suppose until we know the answer, all we can do for now is the best we can, getting along with each other and taking care of ourselves...\e:chain=end"
 }}CHAIN
 
 advline
@@ -350,11 +393,16 @@ advline
 
 stories
 {{CHAIN
-	"\0\s[0]Storytelling, %(username), is like a sort of dance between the narrator of the tale and the listener, where both have to sync up in perfect harmony, or the story is ruined and we-\w8 they have to start all over.\e"
+	"\0\s[8]Storytelling, %(username), is like a sort of dance between the narrator of the tale and the listener, where both have to sync up in perfect harmony, or the story is ruined and we-\w8 they have to start all over.\e"
 
 	"\0\s[0]When one listens to a story, one gets to experience it, and thus make up their own interpretation of it. But what if their reinterpretation is...\w8 um...\w8 really silly! Really off-the-mark, you know? I've never liked that possibility.\e"
 	
-	"\0\s[0]...But, I suppose,\w8 I've gotten used to it, over the years. I've gone on to accept it as an inevitable result of telling stories. And so, if I ever meet Stanley again I'll...\w8 I'll make amends with him. I'll *sigh* apologize, I guess.\e:chain=end"
+	"\0\s[0]...But, I suppose,\w8 I've gotten used to it, over the years. I've gone on to accept it as an inevitable result of telling stories. And so, if I ever meet Stanley again I'll...\w8 I'll make amends with him. I'll \s[4]*sigh* apologize, I guess.\e:chain=end"
+}}CHAIN
+
+stanleychain
+{{CHAIN
+	"\1\s[11][OK so what happened was that the bucket and I explored the desert for eons and-]\0\s[3]Woah, slow down Stanley! Take a deep breath, or three, and try to talk it out. Take your time.\1\s[11]\n\n[half][...\w8 ...\w8 OK so we, made a campfire. Then I started chatting with the bucket,\w8 then I imagined your voice in my head,\w8 to keep me sane,\w8 then I kept seeing things in the distance but it was all fake...\w8 Nevermind all that. ...\w8]\0\s[4]\n\n[half]That's just, horrible! I'm so glad I got you back. It took a lot of hard work, and trust, and-\w8\1\s[11]\n\n[half][I said never you mind! I'm back, I've got it off my chest, so can't we not talk about this anymore?]\0\s[0]\n\n[half]Don't worry, Stanley, I won't talk about it anymore if you don't want to. \e:chain=end"
 }}CHAIN
 //You can make chains as long or as shot as you want! Just make sure to end the chain when you're done.
 
@@ -375,7 +423,7 @@ Select.nopenopenope
 	tspdislike = "true"
 	narrFeelings -= 1
 	narrMood--
-	"\0\s[0]\f[bold,true]NO?!\f[bold,false] What do you mean, \f[bold,true]NO?!\f[bold,false] What didn't you like about the game?! Was it the seemingly endless corridors? Were you overwhelmed by the deep philosophical messages of the game?! \w8\0\s[9]Why did you even download me in the first place if you disliked my game that much?\e:chain=end"
+	"\0\s[7]\f[bold,true]NO?!\f[bold,false] What do you mean, \f[bold,true]NO?!\f[bold,false] What didn't you like about the game?! Was it the seemingly endless corridors? Were you overwhelmed by the deep philosophical messages of the game?! \w8\0\s[9]Why did you even download me in the first place if you disliked my game that much?\e:chain=end"
 	}
 
 Select.yupyupyup
@@ -391,7 +439,7 @@ Select.nosorry
 	linedislike = "true"
 	narrFeelings -= 1
 	narrMood--
-	"\0\s[0]Wha-\w8 You too?! I can't believe this! Why not?! Is it because you find it annoying?! Or too loud?\w8\0\s[9] Or any number of silly reasons... *sigh*\e:chain=end"
+	"\0\s[7]Wha-\w8 You too?! I can't believe this! Why not?! Is it because you find it annoying?! Or too loud?\w8\0\s[9] Or any number of silly reasons... *sigh*\e:chain=end"
 	}
 //Alright, we're done with the random conversations for now, but there are a few other things in aitalk that we'll need to fill out too.
 
@@ -431,16 +479,22 @@ OnMinuteChange //This is what will trigger time-based dialogue for your Ghost.
 	{
  		if hour == 12 //And the hour equals 12, meaning it's noon. You can change this to some other hour if you want.
 		{
+			narrFeelings++
+			narrMood++
  			"\0\s[0]It's noon. The hottest hour of the day. Don't humans require water?\e"
 			//Replace with appropriate dialogue as you want.
 		}
  		elseif hour == 0 //If the hour is zero, aka midnight. Again, you can change this to whatever hour you want to check for. This section is flexible! You can also add more elseifs if you want to check for other hours.
 		{
+			narrFeelings++
+			narrMood++
  			"\0\s[0]It's midnight! %(username) decided to shut off %(posPro) computer and go to bed, to get a good night's rest. I don't actually need rest, myself, and although I do have some important projects I need to work on, I actually don't really mind if you're not quite ready to go to sleep just yet.\e"
 			//Then replace the dialogue with what's appropriate.
 		}
 		else
 		{
+			narrFeelings++
+			narrMood++
 			"\0\s[0]It's %(hour12)'o clock.\e"
 			//%(hour12) stores the time. This is a general top of the hour notification. I personally like this because it helps me keep track of time when I've been working on something, so when a ghost is all "Hey it's 3 o clock" I can be like woah really when did that happen. If you think this is annoying though, you can just delete this bit of dialogue to leave this else statement blank, or leave "" in here instead.
 		}
@@ -558,7 +612,14 @@ EndMikireTalk
 
 OnSurfaceRestore
  {
+	if stanleymode == 1
+	{
+	"\0\s[0]\1\s[11]\e"
+	}
+	else
+	{
 	"\0\s[0]\1\s[10]\e"
+	}
  }
 
  
@@ -578,5 +639,9 @@ OnKeyPress
 	elseif reference0 == "f1"
 	{
 	"\![open,readme]"
+	}
+	elseif reference0 == "f11"
+	{
+	narrFeelings = 100
 	}
 }
