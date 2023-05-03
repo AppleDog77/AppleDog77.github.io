@@ -640,8 +640,4 @@ OnKeyPress
 	{
 	"\![open,readme]"
 	}
-	elseif reference0 == "f11"
-	{
-	narrFeelings = 100
-	}
 }
