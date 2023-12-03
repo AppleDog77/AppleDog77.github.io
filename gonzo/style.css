@@ -1,0 +1,94 @@
+body {
+font-family: ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif;
+font-size: 12pt;
+background: #000000 url("pix/bg_stars.gif") fixed;
+color:#ffffaa;
+margin:0;
+padding:0;
+}
+
+a:link, a:visited {
+text-decoration:underline;
+color:#eeeeee;
+}
+
+a:active, a:hover {
+text-decoration:underline;
+color:#ffffff;
+}
+h1 {
+font-style: italic;
+font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
+font-weight: 600;
+font-size: 20pt;
+}
+strong {
+font-weight: bold;
+font-style: italic;
+}
+img {
+border:0px;
+}
+
+#header {
+border: 10px inset #0000ff;
+background-color: #27125F;
+text-align:center;
+height:90px;
+}
+
+#header img {
+margin:auto;
+}
+
+#container {
+position:relative;
+width:90%;
+}
+
+#content {
+margin-left:145px;
+margin-right:0px;
+padding:0.5rem;
+background-color: #000088;
+color:#ffffff;
+border: 10px dotted #0000aa;
+}
+
+#gallery {
+  display: flex;
+  border: 10px inset #0000ff;
+  background: #000057 url("pix/cloudynite.gif") fixed;
+  padding: 0.5rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#leftmenu {
+position:absolute;
+left:0;
+top:0;
+width:130px;
+padding:5px;
+text-align:left;
+color: #ffffaa;
+background-color: #00008b;
+border: 5px dashed #000055;
+}
+
+#leftmenu ul {
+list-style-type:none;
+margin:0;
+padding:0 0.1rem;
+}
+
+
+#footer {
+padding-top:0.5rem;
+margin-left:9rem;
+margin-right:0px;
+color: #ffffff;
+background-color: #0000aa;
+border: 5px dotted #000055;
+}
