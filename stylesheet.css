@@ -207,6 +207,12 @@
                 color: #000077;
             }
 
+            hr {
+                color: #BB00BB;
+                height: 2px;
+                border-width: 3px;
+            }
+
             /* this is just a cool box, it's the darker colored one */
             .box {
                 background-color: #13092D;
